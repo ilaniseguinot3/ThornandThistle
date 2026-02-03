@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c4ed39d81c6554eb0788268ace8990, type: 3}
   m_Name: Customer1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - speakerName: Customer 1
+    text: Hello how are you
+    portrait: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    autoAdvanceDelay: 2
+  - speakerName: Player
+    text: Hello I am good
+    portrait: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    autoAdvanceDelay: 2
