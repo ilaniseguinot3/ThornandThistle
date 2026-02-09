@@ -9,13 +9,14 @@ public class playerMovementScript : MonoBehaviour
     {
             // Lock the cursor to the center of the screen
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
     }
 
      
     // set default speeds
     float horizontalSpeed = 0.5f;
     float verticalSpeed = 0.5f;
-    int playerSpeed = 500;
+    int playerSpeed = 10;
 
     // save yaw and pitch (camera rotation)
     float yaw = 0f;
