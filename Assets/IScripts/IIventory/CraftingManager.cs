@@ -15,36 +15,41 @@ public class CraftingManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    /// <summary>
+    /// Checks if the player has enough ingredients to craft the given recipe.
+    /// </summary>
     public bool CanCraft(Recipe recipe)
     {
         foreach (var req in recipe.ingredients)
         {
-            int owned = InventoryManager.Instance.GetQuantity(req.ingredient);
+            int owned = InventoryManager.Instance.GetIngredientQuantity(req.ingredient);
             if (owned < req.requiredAmount)
                 return false;
         }
         return true;
     }
 
+    /// <summary>
+    /// Attempts to craft the recipe — consumes ingredients and adds the resulting potion.
+    /// </summary>
     public void Craft(Recipe recipe)
     {
         if (!CanCraft(recipe))
         {
-            Debug.Log("Not enough ingredients to craft " + recipe.resultPotion.potionName);
+            Debug.Log($"❌ Not enough ingredients to craft {recipe.resultPotion.potionName}");
             return;
         }
 
-        // Consume ingredients
+        // Consume required ingredients
         foreach (var req in recipe.ingredients)
         {
-            InventoryManager.Instance.RemoveItem(req.ingredient, req.requiredAmount);
+            InventoryManager.Instance.RemoveIngredient(req.ingredient, req.requiredAmount);
+            Debug.Log($"🧂 Used {req.requiredAmount}x {req.ingredient.ingredientName}");
         }
 
-        // Add potion as new item (you can track potions in same inventory)
-        Ingredient potionAsIngredient = ScriptableObject.CreateInstance<Ingredient>();
-        potionAsIngredient.ingredientName = recipe.resultPotion.potionName;
-        InventoryManager.Instance.AddItem(potionAsIngredient, recipe.resultAmount);
-
-        Debug.Log($"Crafted {recipe.resultAmount}x {recipe.resultPotion.potionName}");
+        // Add resulting potion(s)
+        InventoryManager.Instance.AddPotion(recipe.resultPotion, recipe.resultAmount);
+        InventoryEvents.OnInventoryChanged.Invoke(); // updates the UI
+        Debug.Log($"🍾 Crafted {recipe.resultAmount}x {recipe.resultPotion.potionName}");
     }
 }

@@ -90,7 +90,7 @@ public class CauldronManager : MonoBehaviour
             UpdateIngredientCircleUI();
 
             // Return to inventory
-            InventoryManager.Instance.AddItem(ingredient, 1);
+            InventoryManager.Instance.AddIngredient(ingredient, 1);
 
             Debug.Log($"🧺 Returned {ingredient.ingredientName} to inventory");
         }

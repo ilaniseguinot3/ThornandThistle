@@ -22,14 +22,17 @@ public class InventoryUIManager : MonoBehaviour, PlayerControls.IUIActions
     void OnEnable()
     {
         controls.UI.Enable();
-        Debug.Log($"🔧 UI Map enabled: {controls.UI.enabled}");
+        InventoryEvents.OnInventoryChanged.AddListener(RefreshInventoryUI);
+        Debug.Log("🔧 UI Map enabled and subscribed to inventory updates");
     }
-    
+
     void OnDisable()
     {
         controls.UI.Disable();
-        Debug.Log("🔧 UI Map disabled");
+        InventoryEvents.OnInventoryChanged.RemoveListener(RefreshInventoryUI);
+        Debug.Log("🔧 UI Map disabled and unsubscribed from inventory updates");
     }
+
 
     void Start()
     {
@@ -69,54 +72,26 @@ public class InventoryUIManager : MonoBehaviour, PlayerControls.IUIActions
 
     private void RefreshInventoryUI()
     {
-        if (contentParent == null)
-        {
-            Debug.LogError("❌ Content Parent not assigned!");
-            return;
-        }
-
-        if (inventorySlotPrefab == null)
-        {
-            Debug.LogError("❌ Inventory Slot Prefab not assigned!");
-            return;
-        }
-
         // Clear existing slots
         foreach (Transform child in contentParent)
-        {
             Destroy(child.gameObject);
-        }
 
-        // Check if InventoryManager exists
-        if (InventoryManager.Instance == null)
+        var allItems = InventoryManager.Instance.GetAllIngredients();
+
+        foreach (var inventoryItem in allItems)
         {
-            Debug.LogWarning("⚠️ InventoryManager.Instance is null! No items to display.");
-            return;
-        }
+            if (!(inventoryItem.item is Ingredient ingredient))
+            {
+                Debug.LogWarning("InventoryItem is not an Ingredient!");
+                continue;
+            }
 
-        // Get all items from inventory
-        var allItems = InventoryManager.Instance.GetAllItems();
-        
-        Debug.Log($"📦 Found {allItems.Count} items in inventory");
-
-        // Create a slot for each item
-        foreach (var item in allItems)
-        {
             GameObject slotObj = Instantiate(inventorySlotPrefab, contentParent);
             InventorySlotUI slotUI = slotObj.GetComponent<InventorySlotUI>();
-
-            if (slotUI != null)
-            {
-                // Initialize the slot with ingredient data
-                slotUI.Initialize(item.ingredient, item.quantity, OnIngredientClicked);
-                Debug.Log($"✅ Created slot for: {item.ingredient.ingredientName} x{item.quantity}");
-            }
-            else
-            {
-                Debug.LogError("❌ InventorySlotUI component not found on prefab!");
-            }
+            slotUI.Initialize(ingredient, inventoryItem.quantity, OnIngredientClicked);
         }
     }
+
 
     // Callback when an ingredient is clicked in the inventory
     private void OnIngredientClicked(Ingredient ingredient)
@@ -129,7 +104,7 @@ public class InventoryUIManager : MonoBehaviour, PlayerControls.IUIActions
             CauldronManager.Instance.AddIngredient(ingredient);
             
             // Remove from inventory
-            InventoryManager.Instance.RemoveItem(ingredient, 1);
+            InventoryManager.Instance.RemoveIngredient(ingredient, 1);
             
             // Refresh UI to show updated quantity
             RefreshInventoryUI();
@@ -139,4 +114,9 @@ public class InventoryUIManager : MonoBehaviour, PlayerControls.IUIActions
             Debug.LogWarning("⚠️ CauldronManager.Instance is null!");
         }
     }
+    public void OnToggleJournal(InputAction.CallbackContext context)
+    {
+        // Do nothing — handled by JournalUIManager instead
+    }
+
 }

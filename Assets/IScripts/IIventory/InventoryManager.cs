@@ -5,8 +5,8 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
-    // Dictionary acts like a runtime database
-    private Dictionary<Ingredient, InventoryItem> inventory = new Dictionary<Ingredient, InventoryItem>();
+    private Dictionary<Ingredient, InventoryItem> ingredientInventory = new();
+    private Dictionary<Potion, InventoryItem> potionInventory = new();
 
     private void Awake()
     {
@@ -20,41 +20,69 @@ public class InventoryManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Add item to inventory
-    public void AddItem(Ingredient ingredient, int amount)
+    // ================= Ingredients =================
+    public void AddIngredient(Ingredient ingredient, int amount)
     {
-        if (inventory.ContainsKey(ingredient))
-        {
-            inventory[ingredient].quantity += amount;
-        }
+        if (ingredientInventory.ContainsKey(ingredient))
+            ingredientInventory[ingredient].quantity += amount;
         else
+            ingredientInventory.Add(ingredient, new InventoryItem(ingredient, amount));
+
+        InventoryEvents.OnInventoryChanged.Invoke();
+    }
+
+    public void RemoveIngredient(Ingredient ingredient, int amount)
+    {
+        if (ingredientInventory.ContainsKey(ingredient))
         {
-            inventory.Add(ingredient, new InventoryItem(ingredient, amount));
+            ingredientInventory[ingredient].quantity -= amount;
+            if (ingredientInventory[ingredient].quantity <= 0)
+                ingredientInventory.Remove(ingredient);
         }
 
-        Debug.Log($"{ingredient.ingredientName} added: +{amount}");
+        InventoryEvents.OnInventoryChanged.Invoke();
     }
 
-    // Remove item
-    public void RemoveItem(Ingredient ingredient, int amount)
+    public List<InventoryItem> GetAllIngredients()
     {
-        if (inventory.ContainsKey(ingredient))
+        return new List<InventoryItem>(ingredientInventory.Values);
+    }
+
+    public int GetIngredientQuantity(Ingredient ingredient)
+    {
+        return ingredientInventory.ContainsKey(ingredient) ? ingredientInventory[ingredient].quantity : 0;
+    }
+
+    // ================= Potions =================
+    public void AddPotion(Potion potion, int amount)
+    {
+        if (potionInventory.ContainsKey(potion))
+            potionInventory[potion].quantity += amount;
+        else
+            potionInventory.Add(potion, new InventoryItem(potion, amount));
+
+        InventoryEvents.OnInventoryChanged.Invoke();
+    }
+
+    public void RemovePotion(Potion potion, int amount)
+    {
+        if (potionInventory.ContainsKey(potion))
         {
-            inventory[ingredient].quantity -= amount;
-            if (inventory[ingredient].quantity <= 0)
-                inventory.Remove(ingredient);
+            potionInventory[potion].quantity -= amount;
+            if (potionInventory[potion].quantity <= 0)
+                potionInventory.Remove(potion);
         }
+
+        InventoryEvents.OnInventoryChanged.Invoke();
     }
 
-    // Get item quantity
-    public int GetQuantity(Ingredient ingredient)
+    public List<InventoryItem> GetAllPotions()
     {
-        return inventory.ContainsKey(ingredient) ? inventory[ingredient].quantity : 0;
+        return new List<InventoryItem>(potionInventory.Values);
     }
 
-    // Access all items (e.g., for UI)
-    public List<InventoryItem> GetAllItems()
+    public int GetPotionQuantity(Potion potion)
     {
-        return new List<InventoryItem>(inventory.Values);
+        return potionInventory.ContainsKey(potion) ? potionInventory[potion].quantity : 0;
     }
 }

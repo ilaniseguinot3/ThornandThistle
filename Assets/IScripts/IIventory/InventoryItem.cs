@@ -1,12 +1,14 @@
+using UnityEngine;
+
 [System.Serializable]
 public class InventoryItem
 {
-    public Ingredient ingredient;
+    public ScriptableObject item; // can be Potion or Ingredient
     public int quantity;
 
-    public InventoryItem(Ingredient ingredient, int quantity)
+    public InventoryItem(ScriptableObject newItem, int amount)
     {
-        this.ingredient = ingredient;
-        this.quantity = quantity;
+        item = newItem;
+        quantity = amount;
     }
 }

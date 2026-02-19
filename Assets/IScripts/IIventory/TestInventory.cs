@@ -8,19 +8,23 @@ public class TestInventory : MonoBehaviour
 
     void Start()
     {
-        // Add some test items
+        // Add some test items to the ingredient inventory
         if (InventoryManager.Instance != null)
         {
             if (testIngredient1 != null)
-                InventoryManager.Instance.AddItem(testIngredient1, 5);
-            
+                InventoryManager.Instance.AddIngredient(testIngredient1, 5);
+
             if (testIngredient2 != null)
-                InventoryManager.Instance.AddItem(testIngredient2, 3);
-            
+                InventoryManager.Instance.AddIngredient(testIngredient2, 3);
+
             if (testIngredient3 != null)
-                InventoryManager.Instance.AddItem(testIngredient3, 7);
-                
+                InventoryManager.Instance.AddIngredient(testIngredient3, 7);
+
             Debug.Log("🧪 Test ingredients added to inventory!");
+        }
+        else
+        {
+            Debug.LogError("❌ InventoryManager instance not found in scene!");
         }
     }
 }

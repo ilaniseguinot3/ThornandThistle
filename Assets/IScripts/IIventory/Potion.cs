@@ -5,5 +5,5 @@ public class Potion : ScriptableObject
 {
     public string potionName;
     public Sprite icon;
-    public string description;
+    public int quantity;
 }

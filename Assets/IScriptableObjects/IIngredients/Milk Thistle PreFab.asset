@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc84d25fee5e32c4c94c87eb53a526b7, type: 3}
-  m_Name: Ingredient1
+  m_Name: Milk Thistle PreFab
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  ingredientName: ingredient1
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ingredientName: Milk Thistle
+  icon: {fileID: 21300000, guid: 3f00c6089301c3e48bf84b41f49175d8, type: 3}
   category: 
+  quantity: 5
   id: 0
