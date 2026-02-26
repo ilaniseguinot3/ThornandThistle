@@ -16,6 +16,11 @@ public class PotionSlotUI : MonoBehaviour, IPointerClickHandler
     {
         potion = newPotion;
         icon.sprite = potion.icon;
+        // Add this temporarily to PotionSlotUI.Initialize() to debug:
+        if (potion.icon == null)
+            Debug.LogError($"❌ Potion '{potion.potionName}' has no icon assigned!");
+        else
+            Debug.Log($"✅ Potion icon found: {potion.icon.name}");
         quantityText.text = quantity.ToString();
         onClick = clickCallback;
     }

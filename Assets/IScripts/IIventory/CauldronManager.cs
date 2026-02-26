@@ -134,12 +134,12 @@ public class CauldronManager : MonoBehaviour
                 CraftingManager.Instance.Craft(recipe);
                 ClearCauldron();
                 Debug.Log($"✨ Brewed potion: {recipe.resultPotion.potionName}!");
-                // Show the potion result visually
-                GameObject potionIcon = new GameObject("PotionIcon", typeof(RectTransform), typeof(Image));
-                potionIcon.transform.SetParent(ingredientCircleParent);
-                var img = potionIcon.GetComponent<Image>();
-                img.sprite = recipe.resultPotion.icon;
-                img.rectTransform.anchoredPosition = Vector2.zero;
+                // // Show the potion result visually
+                // GameObject potionIcon = new GameObject("PotionIcon", typeof(RectTransform), typeof(Image));
+                // potionIcon.transform.SetParent(ingredientCircleParent);
+                // var img = potionIcon.GetComponent<Image>();
+                // img.sprite = recipe.resultPotion.icon;
+                // img.rectTransform.anchoredPosition = Vector2.zero;
 
                 return;
             }

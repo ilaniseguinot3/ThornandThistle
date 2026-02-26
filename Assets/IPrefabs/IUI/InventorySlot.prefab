@@ -354,7 +354,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5645200727115062458
 CanvasRenderer:
@@ -454,6 +454,9 @@ MonoBehaviour:
   nameText: {fileID: 5668087493096440685}
   quantityText: {fileID: 4236853445605677711}
   button: {fileID: 4576023769554307993}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 0.35}
+  disabledOpacity: 0.35
 --- !u!1 &8863429978365797967
 GameObject:
   m_ObjectHideFlags: 0
