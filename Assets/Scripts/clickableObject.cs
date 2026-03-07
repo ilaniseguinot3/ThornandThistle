@@ -6,6 +6,10 @@ public class clickableObject : MonoBehaviour
 
     // how far away items can be clicked from
     public float reach = 3f;
+    // canvases
+    public GameObject diagnosisCanvas;
+    public DialogueData dialogueToPlay;
+
 
     void Update()
     {
@@ -27,6 +31,8 @@ public class clickableObject : MonoBehaviour
                 {
                     // open the diagnosis canvas
                     print("clicked on door!");
+                    diagnosisCanvas.SetActive(true);
+                    DialogueManager.Instance.StartDialogue(dialogueToPlay);
                 }
                 else if (hit.collider.gameObject.CompareTag("cauldron"))
                 {
