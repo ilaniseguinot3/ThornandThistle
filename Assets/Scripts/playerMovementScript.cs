@@ -7,9 +7,9 @@ public class playerMovementScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-            // Lock the cursor to the center of the screen
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = true;
+        // Lock the cursor to the center of the screen
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
      

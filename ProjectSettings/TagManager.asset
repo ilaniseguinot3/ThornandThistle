@@ -6,6 +6,9 @@ TagManager:
   tags:
   - ingredient1
   - ingredient2
+  - door
+  - cauldron
+  - shelf
   layers:
   - Default
   - TransparentFX
