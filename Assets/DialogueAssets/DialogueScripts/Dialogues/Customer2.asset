@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c4ed39d81c6554eb0788268ace8990, type: 3}
+  m_Name: Customer2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - speakerName: Customer 1
+    text: Excuse me, Apothecary?
+    portrait: {fileID: 21300000, guid: 4a82dea9639f6a743aef91e54492b629, type: 3}
+    autoAdvanceDelay: 2
+  - speakerName: Player
+    text: Oh sorry, didn't see you there.
+    portrait: {fileID: 21300000, guid: b880711972d51624a9efee841dca5de1, type: 3}
+    autoAdvanceDelay: 2
+  - speakerName: Player
+    text: How can I help you?
+    portrait: {fileID: 21300000, guid: b880711972d51624a9efee841dca5de1, type: 3}
+    autoAdvanceDelay: 2
+  - speakerName: Customer 1
+    text: I've eaten some strange mushrooms, and I'm not feeling all that well.
+    portrait: {fileID: 21300000, guid: 4a82dea9639f6a743aef91e54492b629, type: 3}
+    autoAdvanceDelay: 2
+  - speakerName: Player
+    text: Oh dear! Let me see what I can do.
+    portrait: {fileID: 21300000, guid: b880711972d51624a9efee841dca5de1, type: 3}
+    autoAdvanceDelay: 2
