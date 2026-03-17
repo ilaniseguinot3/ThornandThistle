@@ -5,9 +5,9 @@ using TMPro;
 
 public class PotionSlotUI : MonoBehaviour, IPointerClickHandler
 {
-    public Image icon;
+    [Header("UI References")]
+    public Image icon;                  // Assign in prefab Inspector
     public TextMeshProUGUI quantityText;
-
 
     private System.Action onClick;
     [HideInInspector] public Potion potion;
@@ -15,14 +15,28 @@ public class PotionSlotUI : MonoBehaviour, IPointerClickHandler
     public void Initialize(Potion newPotion, int quantity, System.Action clickCallback)
     {
         potion = newPotion;
-        icon.sprite = potion.icon;
-        // Add this temporarily to PotionSlotUI.Initialize() to debug:
-        if (potion.icon == null)
-            Debug.LogError($"❌ Potion '{potion.potionName}' has no icon assigned!");
-        else
-            Debug.Log($"✅ Potion icon found: {potion.icon.name}");
         quantityText.text = quantity.ToString();
         onClick = clickCallback;
+
+        // ✅ Properly assign the sprite to the Image component
+        if (icon != null)
+        {
+            if (newPotion.icon != null)
+            {
+                icon.sprite = newPotion.icon;
+                icon.enabled = true;
+                Debug.Log($"✅ Potion icon assigned: {newPotion.icon.name}");
+            }
+            else
+            {
+                icon.enabled = false; // hide broken image rather than show blank
+                Debug.LogError($"❌ Potion '{newPotion.potionName}' has no icon assigned in its ScriptableObject!");
+            }
+        }
+        else
+        {
+            Debug.LogError($"❌ PotionSlotUI on '{gameObject.name}' has no Image component assigned for 'icon'!");
+        }
     }
 
     public void UpdateQuantity(int quantity)

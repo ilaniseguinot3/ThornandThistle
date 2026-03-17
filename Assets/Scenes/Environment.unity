@@ -554,85 +554,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301876554}
   m_CullTransparentMesh: 1
---- !u!1 &408167330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 408167331}
-  - component: {fileID: 408167333}
-  - component: {fileID: 408167332}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &408167331
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408167330}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.32139, y: -7.02218, z: 5.69538}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1333235289}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &408167332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408167330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
---- !u!114 &408167333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408167330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!1 &464954661 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 58a368c308e1eab4793307d1edff4f70, type: 3}
@@ -1154,6 +1075,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.12592748, y: 0.019686714, z: 0.10905641}
   m_Center: {x: 0, y: 0.00015664333, z: 0}
+--- !u!4 &996070749 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
+  m_PrefabInstance: {fileID: 1862452201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1003110675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
@@ -1358,7 +1284,6 @@ Transform:
   m_Children:
   - {fileID: 1498294578}
   - {fileID: 71341195}
-  - {fileID: 408167331}
   - {fileID: 1580659597}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1638,6 +1563,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   dialogueUI: {fileID: 71341196}
+--- !u!1 &1556892748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556892749}
+  m_Layer: 0
+  m_Name: CauldronCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1556892749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556892748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0161, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 996070749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577397503 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4773381025163901168, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
@@ -2177,7 +2133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
       propertyPath: m_Name
-      value: Cauldron
+      value: CauldronItem
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
       propertyPath: m_TagString
@@ -2185,7 +2141,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1556892749}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
       insertIndex: -1
@@ -2446,7 +2405,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3233294244903527121}
   - {fileID: 2290852202075899549}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2471,7 +2429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &615376837503033983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3152,9 +3110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bfce93db964fa94698e193178271ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CauldronManager
-  ingredientCircleParent: {fileID: 5566409820726231055}
-  ingredientSlotPrefab: {fileID: 3656637516885765603, guid: f2bf6a1169f600848974ca05ffa7c8af, type: 3}
-  circleRadius: 150
+  cauldronCenter: {fileID: 1556892749}
+  ingredientQuadMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  orbitRadius: 0.6
+  orbitHeight: 0.5
+  quadScale: {x: 1, y: 1, z: 1}
   brewButton: {fileID: 5886879667809195493}
   allRecipes:
   - {fileID: 11400000, guid: c482ae2b9198cdc49a57727da6fb2958, type: 2}
@@ -3674,25 +3634,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4969316221512294537}
   m_CullTransparentMesh: 1
---- !u!224 &3233294244903527121
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5227452401091213865}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 480292571862528883}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3270985146029308529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4321,23 +4262,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &5227452401091213865
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3233294244903527121}
-  - component: {fileID: 5714108518453617365}
-  m_Layer: 5
-  m_Name: CauldronCircle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &5321491433336603303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4612,23 +4536,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6519720655817027022}
   m_CullTransparentMesh: 1
---- !u!114 &5714108518453617365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5227452401091213865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bfce93db964fa94698e193178271ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CauldronManager
-  ingredientCircleParent: {fileID: 5566409820726231055}
-  ingredientSlotPrefab: {fileID: 3656637516885765603, guid: f2bf6a1169f600848974ca05ffa7c8af, type: 3}
-  circleRadius: 150
-  brewButton: {fileID: 0}
-  allRecipes: []
 --- !u!114 &5775582280052328379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5881,7 +5788,7 @@ GameObject:
   - component: {fileID: 2290852202075899549}
   - component: {fileID: 1728937471800829953}
   m_Layer: 0
-  m_Name: Cauldron
+  m_Name: CauldronManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5957,7 +5864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7713930305446647179
 GameObject:
   m_ObjectHideFlags: 0

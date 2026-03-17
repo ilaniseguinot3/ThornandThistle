@@ -6,21 +6,28 @@ public class CauldronManager : MonoBehaviour
 {
     public static CauldronManager Instance { get; private set; }
 
-    public Transform ingredientCircleParent;
-    public GameObject ingredientSlotPrefab;
-    public int circleRadius = 150;
-    public Button brewButton;                          // 👈 Add this
-    public List<Recipe> allRecipes = new();            // 👈 Reference all recipes (assign in Inspector)
+    // --- OLD UI fields (remove from Inspector if you want, no longer used) ---
+    // public Transform ingredientCircleParent;
+    // public GameObject ingredientSlotPrefab;
+    // public int circleRadius = 150;
+
+    [Header("3D Ingredient Display")]
+    public Transform cauldronCenter;        // Assign the cauldron's Transform in Inspector
+    public Material ingredientQuadMaterial; // A Sprites/Default or Unlit/Transparent material
+    public float orbitRadius = 0.6f;        // How far from cauldron center the quads orbit
+    public float orbitHeight = 0.5f;        // How high above the cauldron they float
+    public Vector3 quadScale = new Vector3(0.3f, 0.3f, 0.3f);
+
+    [Header("Brewing")]
+    public Button brewButton;
+    public List<Recipe> allRecipes = new();
 
     private List<Ingredient> currentIngredients = new();
+    private List<GameObject> spawnedQuads = new();
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
 
@@ -34,7 +41,6 @@ public class CauldronManager : MonoBehaviour
     {
         currentIngredients.Add(ingredient);
         UpdateIngredientCircleUI();
-
         Debug.Log("Added to cauldron: " + ingredient.ingredientName);
     }
 
@@ -46,39 +52,39 @@ public class CauldronManager : MonoBehaviour
 
     public void UpdateIngredientCircleUI()
     {
-        // Clear old icons
-        foreach (Transform child in ingredientCircleParent)
-            Destroy(child.gameObject);
+        // Destroy old 3D quads
+        foreach (var quad in spawnedQuads)
+            if (quad != null) Destroy(quad);
+        spawnedQuads.Clear();
 
         int count = currentIngredients.Count;
+        if (count == 0 || cauldronCenter == null) return;
+
         for (int i = 0; i < count; i++)
         {
-            GameObject iconObj = Instantiate(ingredientSlotPrefab, ingredientCircleParent);
+            // Calculate evenly spaced position around cauldron
             float angle = (360f / count) * i * Mathf.Deg2Rad;
-            Vector2 pos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * circleRadius;
+            Vector3 offset = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * orbitRadius;
+            Vector3 worldPos = cauldronCenter.position + offset + Vector3.up * orbitHeight;
 
-            // Position the icon in a circle
-            RectTransform rt = iconObj.GetComponent<RectTransform>();
-            rt.anchoredPosition = pos;
+            // Spawn a primitive Quad
+            GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            quad.name = $"IngredientQuad_{currentIngredients[i].ingredientName}";
+            quad.transform.position = worldPos;
+            quad.transform.localScale = quadScale;
 
-            // Set the ingredient sprite
-            var image = iconObj.GetComponent<UnityEngine.UI.Image>();
-            if (image != null)
-                image.sprite = currentIngredients[i].icon;
+            // Assign material
+            MeshRenderer mr = quad.GetComponent<MeshRenderer>();
+            if (ingredientQuadMaterial != null)
+                mr.material = new Material(ingredientQuadMaterial); // instance per quad
+            else
+                Debug.LogWarning("⚠️ No ingredientQuadMaterial assigned on CauldronManager!");
 
-            // Make the icon clickable
-            var button = iconObj.GetComponent<UnityEngine.UI.Button>();
-            if (button == null)
-                button = iconObj.AddComponent<UnityEngine.UI.Button>();
+            // Attach 3D ingredient component
+            CauldronIngredient3D ing3D = quad.AddComponent<CauldronIngredient3D>();
+            ing3D.Initialize(currentIngredients[i]);
 
-            Ingredient ingredientRef = currentIngredients[i]; // capture loop variable
-
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() =>
-            {
-                Debug.Log($"🔁 Returned {ingredientRef.ingredientName} to inventory");
-                RemoveIngredientAndReturn(ingredientRef);
-            });
+            spawnedQuads.Add(quad);
         }
     }
 
@@ -88,10 +94,7 @@ public class CauldronManager : MonoBehaviour
         {
             currentIngredients.Remove(ingredient);
             UpdateIngredientCircleUI();
-
-            // Return to inventory
             InventoryManager.Instance.AddIngredient(ingredient, 1);
-
             Debug.Log($"🧺 Returned {ingredient.ingredientName} to inventory");
         }
         else
@@ -100,9 +103,6 @@ public class CauldronManager : MonoBehaviour
         }
     }
 
-    
-
-    // 🔮 New method to check combinations
     private void TryCombineIngredients()
     {
         Debug.Log("🧪 Trying to combine ingredients...");
@@ -113,14 +113,11 @@ public class CauldronManager : MonoBehaviour
             return;
         }
 
-        // Check every recipe in your list
         foreach (var recipe in allRecipes)
         {
             bool matches = true;
-
             foreach (var req in recipe.ingredients)
             {
-                // Does this recipe require an ingredient not in the cauldron?
                 if (!currentIngredients.Contains(req.ingredient))
                 {
                     matches = false;
@@ -128,19 +125,11 @@ public class CauldronManager : MonoBehaviour
                 }
             }
 
-            // Check quantity match (optional)
             if (matches && recipe.ingredients.Count == currentIngredients.Count)
             {
                 CraftingManager.Instance.Craft(recipe);
                 ClearCauldron();
                 Debug.Log($"✨ Brewed potion: {recipe.resultPotion.potionName}!");
-                // // Show the potion result visually
-                // GameObject potionIcon = new GameObject("PotionIcon", typeof(RectTransform), typeof(Image));
-                // potionIcon.transform.SetParent(ingredientCircleParent);
-                // var img = potionIcon.GetComponent<Image>();
-                // img.sprite = recipe.resultPotion.icon;
-                // img.rectTransform.anchoredPosition = Vector2.zero;
-
                 return;
             }
         }
