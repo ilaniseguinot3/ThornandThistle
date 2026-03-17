@@ -79,8 +79,23 @@ public class playerMovementScript : MonoBehaviour
                 if(key.dKey.isPressed)
                     move += rightDirection;
 
-                // actually move the camera/player
-                transform.position += move * playerSpeed * Time.deltaTime;
+
+                // also check if it will cause a collision, only move if it doesn't
+                // get the direction
+                Vector3 moveDirection = move.normalized;
+                // get the distance
+                float moveDistance = move.magnitude * playerSpeed * Time.deltaTime;
+
+                // use raycasting to find the object
+                Ray ray = new Ray(transform.position, moveDirection);
+                RaycastHit hit;
+
+                // if it is not going to hit move
+                if (!Physics.Raycast(ray, out hit, moveDistance))
+                {
+                    // actually move the camera/player
+                    transform.position += move * playerSpeed * Time.deltaTime;
+                }
                 Cursor.visible = true;
             }
         }
