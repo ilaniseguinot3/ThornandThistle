@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour {
     public static DialogueManager Instance { get; private set; }
@@ -8,6 +9,7 @@ public class DialogueManager : MonoBehaviour {
     private DialogueData currentDialogue;
     private int currentLineIndex = 0;
     private bool isPlaying = false;
+    private bool open = true;
 
     void Awake() {
         if (Instance != null && Instance != this) {
@@ -26,14 +28,36 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void ShowLine() {
-        if (currentDialogue == null || currentLineIndex >= currentDialogue.lines.Count) {
-            EndDialogue();
+        if (currentDialogue == null || currentLineIndex >= currentDialogue.lines.Count) 
+        {
+            // wait until user closes dialogue
+            StartCoroutine(wait());
             return;
         }
 
         var line = currentDialogue.lines[currentLineIndex];
         dialogueUI.ShowLine(line);
         StartCoroutine(AutoNext(line.autoAdvanceDelay));
+    }
+
+    // wait until user closes dialogue
+    IEnumerator wait()
+    {
+        while (open)
+            {
+                var key = Keyboard.current;
+                // if nothing is being pressed, return
+                if (key == null)
+                    yield break;
+                // otherwise if space is being pressed close dialogue
+                else if (key.spaceKey.isPressed)
+                    open = false;
+
+                // wait for the next frame
+                yield return null;
+            }
+            open = true;
+            EndDialogue();
     }
 
     IEnumerator AutoNext(float delay) {

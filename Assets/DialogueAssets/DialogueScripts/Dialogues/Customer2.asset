@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: Customer2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - speakerName: Customer 1
+  - speakerName: Customer 2
     text: Excuse me, Apothecary?
-    portrait: {fileID: 21300000, guid: 4a82dea9639f6a743aef91e54492b629, type: 3}
+    portrait: {fileID: 21300000, guid: 20fd158208f18034bb91eded34ee65a8, type: 3}
     autoAdvanceDelay: 2
   - speakerName: Player
     text: Oh sorry, didn't see you there.
-    portrait: {fileID: 21300000, guid: b880711972d51624a9efee841dca5de1, type: 3}
+    portrait: {fileID: 21300000, guid: 9395b8b58676649468e3e75f3b7fe718, type: 3}
     autoAdvanceDelay: 2
   - speakerName: Player
     text: How can I help you?
-    portrait: {fileID: 21300000, guid: b880711972d51624a9efee841dca5de1, type: 3}
+    portrait: {fileID: 21300000, guid: 9395b8b58676649468e3e75f3b7fe718, type: 3}
     autoAdvanceDelay: 2
-  - speakerName: Customer 1
+  - speakerName: Customer 2
     text: I've eaten some strange mushrooms, and I'm not feeling all that well.
-    portrait: {fileID: 21300000, guid: 4a82dea9639f6a743aef91e54492b629, type: 3}
+    portrait: {fileID: 21300000, guid: 20fd158208f18034bb91eded34ee65a8, type: 3}
     autoAdvanceDelay: 2
   - speakerName: Player
     text: Oh dear! Let me see what I can do.
-    portrait: {fileID: 21300000, guid: b880711972d51624a9efee841dca5de1, type: 3}
+    portrait: {fileID: 21300000, guid: 9395b8b58676649468e3e75f3b7fe718, type: 3}
     autoAdvanceDelay: 2
