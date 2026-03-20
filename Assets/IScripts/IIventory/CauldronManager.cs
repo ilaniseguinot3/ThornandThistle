@@ -6,20 +6,15 @@ public class CauldronManager : MonoBehaviour
 {
     public static CauldronManager Instance { get; private set; }
 
-    // --- OLD UI fields (remove from Inspector if you want, no longer used) ---
-    // public Transform ingredientCircleParent;
-    // public GameObject ingredientSlotPrefab;
-    // public int circleRadius = 150;
-
     [Header("3D Ingredient Display")]
-    public Transform cauldronCenter;        // Assign the cauldron's Transform in Inspector
-    public Material ingredientQuadMaterial; // A Sprites/Default or Unlit/Transparent material
-    public float orbitRadius = 0.6f;        // How far from cauldron center the quads orbit
-    public float orbitHeight = 0.5f;        // How high above the cauldron they float
+    public Transform cauldronCenter;
+    public Material ingredientQuadMaterial;
+    public float orbitRadius = 0.6f;
+    public float orbitHeight = 0.5f;
     public Vector3 quadScale = new Vector3(0.3f, 0.3f, 0.3f);
 
     [Header("Brewing")]
-    public Button brewButton;
+    //public Button brewButton;
     public List<Recipe> allRecipes = new();
 
     private List<Ingredient> currentIngredients = new();
@@ -33,8 +28,8 @@ public class CauldronManager : MonoBehaviour
 
     private void Start()
     {
-        if (brewButton != null)
-            brewButton.onClick.AddListener(TryCombineIngredients);
+        // if (brewButton != null)
+        //     brewButton.onClick.AddListener(TryCombineIngredients);
     }
 
     public void AddIngredient(Ingredient ingredient)
@@ -52,7 +47,6 @@ public class CauldronManager : MonoBehaviour
 
     public void UpdateIngredientCircleUI()
     {
-        // Destroy old 3D quads
         foreach (var quad in spawnedQuads)
             if (quad != null) Destroy(quad);
         spawnedQuads.Clear();
@@ -62,29 +56,24 @@ public class CauldronManager : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            // Calculate evenly spaced position around cauldron
             float angle = (360f / count) * i * Mathf.Deg2Rad;
             Vector3 offset = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * orbitRadius;
             Vector3 worldPos = cauldronCenter.position + offset + Vector3.up * orbitHeight;
 
-            // Spawn a primitive Quad
             GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
             quad.name = $"IngredientQuad_{currentIngredients[i].ingredientName}";
             quad.transform.position = worldPos;
             quad.transform.localScale = quadScale;
 
-            // ✅ Replace MeshCollider with BoxCollider for reliable clicking
             Destroy(quad.GetComponent<MeshCollider>());
             quad.AddComponent<BoxCollider>();
 
-            // Assign material
             MeshRenderer mr = quad.GetComponent<MeshRenderer>();
             if (ingredientQuadMaterial != null)
-                mr.material = new Material(ingredientQuadMaterial); // instance per quad
+                mr.material = new Material(ingredientQuadMaterial);
             else
                 Debug.LogWarning("⚠️ No ingredientQuadMaterial assigned on CauldronManager!");
 
-            // Attach 3D ingredient component
             CauldronIngredient3D ing3D = quad.AddComponent<CauldronIngredient3D>();
             ing3D.Initialize(currentIngredients[i]);
 
@@ -107,7 +96,7 @@ public class CauldronManager : MonoBehaviour
         }
     }
 
-    private void TryCombineIngredients()
+    public void TryCombineIngredients()
     {
         Debug.Log("🧪 Trying to combine ingredients...");
 
