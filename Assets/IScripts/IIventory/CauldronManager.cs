@@ -73,6 +73,10 @@ public class CauldronManager : MonoBehaviour
             quad.transform.position = worldPos;
             quad.transform.localScale = quadScale;
 
+            // ✅ Replace MeshCollider with BoxCollider for reliable clicking
+            Destroy(quad.GetComponent<MeshCollider>());
+            quad.AddComponent<BoxCollider>();
+
             // Assign material
             MeshRenderer mr = quad.GetComponent<MeshRenderer>();
             if (ingredientQuadMaterial != null)
