@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc84d25fee5e32c4c94c87eb53a526b7, type: 3}
-  m_Name: Milk Thistle PreFab
+  m_Name: White Oak Bark
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  ingredientName: Milk Thistle
-  icon: {fileID: 21300000, guid: d6f98a3e62a01484db6a719de8259989, type: 3}
+  ingredientName: White Oak Bark
+  icon: {fileID: 21300000, guid: 033f0ee421bfdca41895ec3f022b526e, type: 3}
   category: 
-  quantity: 5
+  quantity: 4
   id: 0
