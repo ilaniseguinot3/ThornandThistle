@@ -327,8 +327,8 @@ GameObject:
   - component: {fileID: 1473436491618146688}
   - component: {fileID: 5589099742262652984}
   - component: {fileID: 7974987280624168865}
-  - component: {fileID: 7189510996442292568}
   - component: {fileID: 6004674011839983455}
+  - component: {fileID: 7189510996442292568}
   m_Layer: 5
   m_Name: PotionSlot
   m_TagString: Untagged
@@ -394,6 +394,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6004674011839983455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030882442731823481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259314d55aa0e4d41bfd70c0552ad677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PotionVisual
+  icon: {fileID: 7974987280624168865}
+  quantityText: {fileID: 2071378851950103019}
+  potion: {fileID: 0}
 --- !u!114 &7189510996442292568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,21 +453,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6004674011839983455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8030882442731823481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259314d55aa0e4d41bfd70c0552ad677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PotionVisual
-  icon: {fileID: 8380584207540486206}
-  quantityText: {fileID: 2071378851950103019}
-  potion: {fileID: 0}
 --- !u!1 &8788351467969278306
 GameObject:
   m_ObjectHideFlags: 0
