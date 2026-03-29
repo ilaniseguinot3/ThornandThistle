@@ -39,11 +39,37 @@ public class clickableObject : MonoBehaviour
                     // do something
                     print("clicked on cauldron!");
                 }
-                else if (hit.collider.gameObject.CompareTag("shelf"))
+                else if (hit.collider.gameObject.CompareTag("milk thistle"))
                 {
                     // do something
-                    print("clicked on shelf!");
+                    print("clicked on milk thistle!");
                 }
+                else if (hit.collider.gameObject.CompareTag("comfrey leaf"))
+                {
+                    // do something
+                    print("clicked on comfrey leaf!");
+                }
+                else if (hit.collider.gameObject.CompareTag("calendula"))
+                {
+                    // do something
+                    print("clicked on calendula!");
+                }
+                else if (hit.collider.gameObject.CompareTag("plantain"))
+                {
+                    // do something
+                    print("clicked on plantain!");
+                }
+                else if (hit.collider.gameObject.CompareTag("white oak bark"))
+                {
+                    // do something
+                    print("clicked on white oak bark!");
+                }
+                else if (hit.collider.gameObject.CompareTag("echinacea"))
+                {
+                    // do something
+                    print("clicked on echinacea!");
+                }
+
             }
         }
     }

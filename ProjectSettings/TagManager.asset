@@ -9,6 +9,13 @@ TagManager:
   - door
   - cauldron
   - shelf
+  - milk thistle
+  - comfrey leaf
+  - calendula
+  - plantain
+  - white oak bark
+  - echinacea
+  - salve
   layers:
   - Default
   - TransparentFX
