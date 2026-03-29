@@ -77,6 +77,11 @@ public class clickableObject : MonoBehaviour
                     // do something
                     print("clicked on echinacea!");
                 }
+                else if (hit.collider.gameObject.CompareTag("salve"))
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
+                }
 
             }
         }
