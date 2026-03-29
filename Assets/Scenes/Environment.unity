@@ -6453,7 +6453,7 @@ MonoBehaviour:
   testIngredient1: {fileID: 11400000, guid: ee61be3368b54504ba79cde59589d55e, type: 2}
   testIngredient2: {fileID: 11400000, guid: a28d3547b95bba4419e66f76e9db4b4e, type: 2}
   testIngredient3: {fileID: 11400000, guid: 52a645b45bb4abf47874ecbcbf9fefac, type: 2}
-  testIngredient4: {fileID: 0}
+  testIngredient4: {fileID: 11400000, guid: 55ed67b3bf86e8845a0d35214052b93d, type: 2}
 --- !u!1 &6342919105030888511
 GameObject:
   m_ObjectHideFlags: 0
