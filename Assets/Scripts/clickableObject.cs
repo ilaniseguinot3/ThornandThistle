@@ -5,7 +5,7 @@ public class clickableObject : MonoBehaviour
 {
 
     // how far away items can be clicked from
-    public float reach = 3f;
+    public float reach = 6f;
     // canvases
     public GameObject diagnosisCanvas;
     public DialogueData dialogueToPlay;
@@ -21,11 +21,19 @@ public class clickableObject : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             // use raycasting to find the object
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
+
+            // add mask to ignore shelf
+            int layerMask = ~LayerMask.GetMask("ClickableShelf");
+
+           
+
             // if it is within reach
-            if (Physics.Raycast(ray, out hit, reach))
+            if (Physics.Raycast(ray, out hit, reach, layerMask))
             {
+                 //Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
+
                 // and it has clickable tag
                 if (hit.collider.gameObject.CompareTag("door"))
                 {
