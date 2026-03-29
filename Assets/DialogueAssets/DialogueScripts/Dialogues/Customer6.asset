@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1c4ed39d81c6554eb0788268ace8990, type: 3}
-  m_Name: Customer1
+  m_Name: Customer6
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - speakerName: Customer 1
-    text: Hey there doc. I was wrastlin' s bear over in them there woods and I ain't
-      been feelin so good since. Think you can fix me up?
-    portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}
+  - speakerName: Customer 6
+    text: " I'm itchy all over!!!!!!! I think I'm cursed. You can help with that
+      right? \r\ndialogue for encounters"
+    portrait: {fileID: 21300000, guid: 9395b8b58676649468e3e75f3b7fe718, type: 3}
     autoAdvanceDelay: 2

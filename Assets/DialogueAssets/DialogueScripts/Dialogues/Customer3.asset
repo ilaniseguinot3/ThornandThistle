@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1c4ed39d81c6554eb0788268ace8990, type: 3}
-  m_Name: Customer1
+  m_Name: Customer3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - speakerName: Customer 1
-    text: Hey there doc. I was wrastlin' s bear over in them there woods and I ain't
-      been feelin so good since. Think you can fix me up?
-    portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}
+  - speakerName: Customer 3
+    text: OH GOD OH LORD OH DEAR THE SHAPES AND COLORS BEWITCH ME SINCE I SET FOOT
+      IN THE WOODS. I FEAR AN EVIL SPIRIT HAS TAKEN MY BODY THROUGH THE PORTAL OF
+      MY GUT. SAVE ME DEAR STRANGER. SAVE ME.
+    portrait: {fileID: 21300000, guid: e3682238c9f5c28439e2d4b3584a4b86, type: 3}
     autoAdvanceDelay: 2
