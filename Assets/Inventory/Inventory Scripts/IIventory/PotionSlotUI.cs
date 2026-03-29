@@ -6,7 +6,7 @@ using TMPro;
 public class PotionSlotUI : MonoBehaviour, IPointerClickHandler
 {
     [Header("UI References")]
-    public Image icon;                  // Assign in prefab Inspector
+    public Image icon;
     public TextMeshProUGUI quantityText;
 
     private System.Action onClick;
@@ -18,24 +18,18 @@ public class PotionSlotUI : MonoBehaviour, IPointerClickHandler
         quantityText.text = quantity.ToString();
         onClick = clickCallback;
 
-        // ✅ Properly assign the sprite to the Image component
         if (icon != null)
         {
             if (newPotion.icon != null)
             {
                 icon.sprite = newPotion.icon;
                 icon.enabled = true;
-                Debug.Log($"✅ Potion icon assigned: {newPotion.icon.name}");
             }
             else
             {
-                icon.enabled = false; // hide broken image rather than show blank
-                Debug.LogError($"❌ Potion '{newPotion.potionName}' has no icon assigned in its ScriptableObject!");
+                icon.enabled = false;
+                Debug.LogError($"❌ Potion '{newPotion.potionName}' has no icon assigned!");
             }
-        }
-        else
-        {
-            Debug.LogError($"❌ PotionSlotUI on '{gameObject.name}' has no Image component assigned for 'icon'!");
         }
     }
 
@@ -46,6 +40,16 @@ public class PotionSlotUI : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        onClick?.Invoke();
+        // Only allow potion selection during diagnosis mode
+        if (GameState.Diagnosing)
+        {
+            Debug.Log($"💊 Potion selected during diagnosis: {potion.potionName}");
+            CustomerManager.Instance.EvaluatePotion(potion);
+        }
+        else
+        {
+            // Normal click behaviour
+            onClick?.Invoke();
+        }
     }
 }
