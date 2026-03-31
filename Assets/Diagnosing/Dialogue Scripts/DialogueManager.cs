@@ -15,7 +15,9 @@ public class DialogueManager : MonoBehaviour
     private bool isPlaying = false;
     private bool waitingForInput = false;
     private bool isTyping = false;
+    private bool isFrozen = false;
     private Action onCompleteCallback;
+    private Action onFrozenCallback;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
         if (!isPlaying) return;
+        if (isFrozen) return;
         if (Keyboard.current == null) return;
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
             HandleAdvanceInput();
@@ -34,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     public void HandleAdvanceInput()
     {
         if (!isPlaying) return;
+        if (isFrozen) return;
         if (isTyping)
             dialogueUI.SkipTyping();
         else if (waitingForInput)
@@ -43,7 +47,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueData dialogue, Action onComplete = null)
+    public void StartDialogue(DialogueData dialogue, Action onComplete = null, Action onFrozen = null)
     {
         if (isPlaying)
         {
@@ -59,11 +63,45 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = dialogue;
         currentLineIndex = 0;
         isPlaying = true;
+        isFrozen = false;
         onCompleteCallback = onComplete;
+        onFrozenCallback = onFrozen;
+        ShowCurrentLine();
+    }
+
+    /// <summary>
+    /// Swaps to a new dialogue without closing the panel at all.
+    /// </summary>
+    public void SwapDialogue(DialogueData dialogue, Action onComplete = null)
+    {
+        StopAllCoroutines();
+        currentDialogue = dialogue;
+        currentLineIndex = 0;
+        isPlaying = true;
+        isFrozen = false;
+        isTyping = false;
+        waitingForInput = false;
+        onCompleteCallback = onComplete;
+        onFrozenCallback = null;
+
+        Debug.Log($"🔄 Swapping to dialogue: {dialogue.name}");
         ShowCurrentLine();
     }
 
     public bool IsPlaying() => isPlaying;
+    public bool IsFrozen() => isFrozen;
+
+    public void UnfreezeAndClear()
+    {
+        isFrozen = false;
+        isPlaying = false;
+        isTyping = false;
+        waitingForInput = false;
+        currentDialogue = null;
+        onFrozenCallback = null;
+        dialogueUI.Hide();
+        Debug.Log("🧊 Dialogue unfrozen and cleared");
+    }
 
     private void ShowCurrentLine()
     {
@@ -80,7 +118,24 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.ShowLine(line, onTypingComplete: () =>
         {
             isTyping = false;
-            waitingForInput = true;
+
+            bool isLastLine = currentLineIndex >= currentDialogue.lines.Count - 1;
+
+            if (isLastLine && currentDialogue.freezeOnLastLine)
+            {
+                isFrozen = true;
+                Debug.Log("🧊 Dialogue frozen — waiting for potion selection");
+                onFrozenCallback?.Invoke();
+                onFrozenCallback = null;
+            }
+            else if (isLastLine && currentDialogue.autoCloseOnLastLine)
+            {
+                EndDialogue();
+            }
+            else
+            {
+                waitingForInput = true;
+            }
         });
     }
 
@@ -95,10 +150,12 @@ public class DialogueManager : MonoBehaviour
         isPlaying = false;
         isTyping = false;
         waitingForInput = false;
+        isFrozen = false;
         currentDialogue = null;
         dialogueUI.Hide();
         onCompleteCallback?.Invoke();
         onCompleteCallback = null;
+        onFrozenCallback = null;
         Debug.Log("✅ Dialogue ended");
     }
 
@@ -108,8 +165,10 @@ public class DialogueManager : MonoBehaviour
         isPlaying = false;
         isTyping = false;
         waitingForInput = false;
+        isFrozen = false;
         currentDialogue = null;
         onCompleteCallback = null;
+        onFrozenCallback = null;
         dialogueUI.Hide();
     }
 }

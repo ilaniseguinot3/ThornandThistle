@@ -16,3 +16,5 @@ MonoBehaviour:
   - speakerName: Customer1
     text: Arrival dialogue aaaaaaaaaaaaaa
     portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}
+  autoCloseOnLastLine: 0
+  freezeOnLastLine: 0

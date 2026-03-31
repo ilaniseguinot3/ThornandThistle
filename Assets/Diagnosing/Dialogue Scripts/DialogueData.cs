@@ -5,4 +5,6 @@ using System.Collections.Generic;
 public class DialogueData : ScriptableObject
 {
     public List<DialogueLine> lines = new();
+    public bool autoCloseOnLastLine = false;
+    public bool freezeOnLastLine = false;
 }
