@@ -28,7 +28,7 @@ public class PotionSlotUI : MonoBehaviour, IPointerClickHandler
             else
             {
                 icon.enabled = false;
-                Debug.LogError($"❌ Potion '{newPotion.potionName}' has no icon assigned!");
+                Debug.LogError($"❌ Potion '{newPotion.potionName}' has no icon!");
             }
         }
     }
@@ -40,15 +40,13 @@ public class PotionSlotUI : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Only allow potion selection during diagnosis mode
         if (GameState.Diagnosing)
         {
-            Debug.Log($"💊 Potion selected during diagnosis: {potion.potionName}");
+            Debug.Log($"💊 Potion submitted: {potion.potionName}");
             CustomerManager.Instance.EvaluatePotion(potion);
         }
         else
         {
-            // Normal click behaviour
             onClick?.Invoke();
         }
     }

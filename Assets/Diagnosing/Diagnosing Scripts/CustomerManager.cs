@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 
 public class CustomerManager : MonoBehaviour
@@ -8,15 +10,23 @@ public class CustomerManager : MonoBehaviour
     [Header("Customer Pool")]
     public List<Customer> customerPool = new();
 
-    [Header("Penalty")]
-    public int wrongPotionPenalty = 5; // gold deducted
+    [Header("Money")]
+    public int correctPotionReward = 10;
+    public int wrongPotionPenalty = 5;
+
+    [Header("Next Customer Delay")]
+    public float minDelay = 2f;
+    public float maxDelay = 5f;
 
     private List<Customer> remainingCustomers = new();
     private Customer currentCustomer;
     private bool waitingForPotion = false;
+    private bool customerActive = false;
 
     public Customer CurrentCustomer => currentCustomer;
     public bool WaitingForPotion => waitingForPotion;
+    public bool CustomerActive => customerActive;
+    public Action<bool> OnPotionEvaluated;
 
     private void Awake()
     {
@@ -34,30 +44,25 @@ public class CustomerManager : MonoBehaviour
         remainingCustomers = new List<Customer>(customerPool);
         for (int i = remainingCustomers.Count - 1; i > 0; i--)
         {
-            int j = Random.Range(0, i + 1);
+            int j = UnityEngine.Random.Range(0, i + 1);
             (remainingCustomers[i], remainingCustomers[j]) = (remainingCustomers[j], remainingCustomers[i]);
         }
+        Debug.Log("🔀 Customer pool shuffled");
     }
 
     // Called on first door click
     public void StartNextCustomer()
     {
         if (remainingCustomers.Count == 0)
-            ShufflePool(); // reshuffle when all customers have been seen
+            ShufflePool();
 
         currentCustomer = remainingCustomers[0];
         remainingCustomers.RemoveAt(0);
-
         waitingForPotion = false;
+        customerActive = true;
         GameState.Diagnosing = false;
 
-        // Show illness UI
-        DiagnosisUIManager.Instance.ShowIllness(currentCustomer.illness);
-
-        // Trigger arrival dialogue
-        DialogueManager.Instance.StartDialogue(currentCustomer.arrivalDialogue);
-
-        Debug.Log($"👤 New customer: {currentCustomer.customerName} | Illness: {currentCustomer.illness.illnessName}");
+        Debug.Log($"👤 Customer arrived: {currentCustomer.customerName}");
     }
 
     // Called on second door click
@@ -69,7 +74,7 @@ public class CustomerManager : MonoBehaviour
         Debug.Log("💊 Waiting for potion selection...");
     }
 
-    // Called when player clicks a potion during diagnosing
+    // Called from PotionSlotUI when GameState.Diagnosing is true
     public void EvaluatePotion(Potion selectedPotion)
     {
         if (!waitingForPotion || currentCustomer == null) return;
@@ -78,28 +83,46 @@ public class CustomerManager : MonoBehaviour
         GameState.Diagnosing = false;
 
         bool correct = selectedPotion == currentCustomer.illness.cure;
+        InventoryManager.Instance.RemovePotion(selectedPotion, 1);
 
         if (correct)
         {
-            Debug.Log($"✅ Correct potion given!");
-            DialogueManager.Instance.StartDialogue(currentCustomer.correctPotionDialogue);
-            InventoryManager.Instance.RemovePotion(selectedPotion, 1);
+            // Add your money hook here
+            Debug.Log($"✅ Correct! +{correctPotionReward} gold");
+            // e.g. MoneyManager.Instance.AddMoney(correctPotionReward);
         }
         else
         {
-            Debug.Log($"❌ Wrong potion! Applying penalty of {wrongPotionPenalty}.");
-            DialogueManager.Instance.StartDialogue(currentCustomer.wrongPotionDialogue);
-            InventoryManager.Instance.RemovePotion(selectedPotion, 1);
-            ApplyPenalty();
+            Debug.Log($"❌ Wrong! -{wrongPotionPenalty} gold");
+            // e.g. MoneyManager.Instance.DeductMoney(wrongPotionPenalty);
         }
 
-        DiagnosisUIManager.Instance.HideIllness();
-        currentCustomer = null;
+        OnPotionEvaluated?.Invoke(correct);
+        OnPotionEvaluated = null;
     }
 
-    private void ApplyPenalty()
+    public void ApplyPenalty()
     {
-        // Hook into your money/reputation system here
-        Debug.Log($"💸 Penalty applied: -{wrongPotionPenalty}");
+        Debug.Log($"💸 Penalty: -{wrongPotionPenalty}");
+        // e.g. MoneyManager.Instance.DeductMoney(wrongPotionPenalty);
+    }
+
+    // Called after response dialogue ends
+    public void FinishCurrentCustomer()
+    {
+        currentCustomer = null;
+        customerActive = false;
+        waitingForPotion = false;
+        GameState.Diagnosing = false;
+        StartCoroutine(QueueNextCustomerAfterDelay());
+    }
+
+    private IEnumerator QueueNextCustomerAfterDelay()
+    {
+        float delay = UnityEngine.Random.Range(minDelay, maxDelay);
+        Debug.Log($"⏳ Next customer in {delay:F1} seconds...");
+        yield return new WaitForSeconds(delay);
+        Debug.Log("🚪 A new customer is ready — click the door!");
+        // You can trigger a visual/audio cue here e.g. door knock sound
     }
 }

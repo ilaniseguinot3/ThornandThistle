@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1c4ed39d81c6554eb0788268ace8990, type: 3}
-  m_Name: Customer4
+  m_Script: {fileID: 11500000, guid: 1425e8d71b21947409775e3ec8de06a4, type: 3}
+  m_Name: Correct
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - speakerName: Customer 4
-    text: Hey uh. My tummy hurts. Help.
-    portrait: {fileID: 21300000, guid: d2c42faa0f97cef4796d4f971a54ddb4, type: 3}
-    autoAdvanceDelay: 2
+  - speakerName: Customer1
+    text: Correct dialogue aaaaaaaaaaaaaa
+    portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}

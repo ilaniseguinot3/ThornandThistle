@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7417f3906454ea943a7a0add8580f40c, type: 3}
   m_Name: Illness1
   m_EditorClassIdentifier: Assembly-CSharp::Illness
-  illnessName: 
-  description: 
-  illnessSprite: {fileID: 0}
-  cure: {fileID: 0}
+  illnessName: Illness1
+  description: An Illness
+  illnessSprite: {fileID: 21300000, guid: fca88619982cc3f4fa36a712f1f42791, type: 3}
+  cure: {fileID: 11400000, guid: 584f24e153807f041ac4dfb92fcc8e55, type: 2}

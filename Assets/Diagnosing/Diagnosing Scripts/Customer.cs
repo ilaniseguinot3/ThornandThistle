@@ -4,9 +4,12 @@ using UnityEngine;
 public class Customer : ScriptableObject
 {
     public string customerName;
-    public Sprite portrait;                    // 👈 add this
+    public Sprite portrait;
     public Illness illness;
-    public DialogueData arrivalDialogue;
-    public DialogueData correctPotionDialogue;
-    public DialogueData wrongPotionDialogue;
+
+    [Header("Dialogues")]
+    public DialogueData arrivalDialogue;       // first door click
+    public DialogueData returnDialogue;        // second door click — "what have you brought me?"
+    public DialogueData correctPotionDialogue; // right potion given
+    public DialogueData wrongPotionDialogue;   // wrong potion given
 }
