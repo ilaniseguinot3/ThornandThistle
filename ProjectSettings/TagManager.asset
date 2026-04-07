@@ -9,11 +9,19 @@ TagManager:
   - door
   - cauldron
   - shelf
+  - milk thistle
+  - comfrey leaf
+  - calendula
+  - plantain
+  - white oak bark
+  - echinacea
+  - salve
+  - film_camera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ClickableShelf
   - Water
   - UI
   - 

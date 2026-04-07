@@ -5,7 +5,7 @@ public class clickableObject : MonoBehaviour
 {
 
     // how far away items can be clicked from
-    public float reach = 3f;
+    public float reach = 6f;
     // canvases
     public GameObject diagnosisCanvas;
     public DialogueData dialogueToPlay;
@@ -21,11 +21,19 @@ public class clickableObject : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             // use raycasting to find the object
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
+
+            // add mask to ignore shelf
+            int layerMask = ~LayerMask.GetMask("ClickableShelf");
+
+           
+
             // if it is within reach
-            if (Physics.Raycast(ray, out hit, reach))
+            if (Physics.Raycast(ray, out hit, reach, layerMask))
             {
+                 //Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
+
                 // and it has clickable tag
                 if (hit.collider.gameObject.CompareTag("door"))
                 {
@@ -39,11 +47,42 @@ public class clickableObject : MonoBehaviour
                     // do something
                     print("clicked on cauldron!");
                 }
-                else if (hit.collider.gameObject.CompareTag("shelf"))
+                else if (hit.collider.gameObject.CompareTag("milk thistle"))
                 {
                     // do something
-                    print("clicked on shelf!");
+                    print("clicked on milk thistle!");
                 }
+                else if (hit.collider.gameObject.CompareTag("comfrey leaf"))
+                {
+                    // do something
+                    print("clicked on comfrey leaf!");
+                }
+                else if (hit.collider.gameObject.CompareTag("calendula"))
+                {
+                    // do something
+                    print("clicked on calendula!");
+                }
+                else if (hit.collider.gameObject.CompareTag("plantain"))
+                {
+                    // do something
+                    print("clicked on plantain!");
+                }
+                else if (hit.collider.gameObject.CompareTag("white oak bark"))
+                {
+                    // do something
+                    print("clicked on white oak bark!");
+                }
+                else if (hit.collider.gameObject.CompareTag("echinacea"))
+                {
+                    // do something
+                    print("clicked on echinacea!");
+                }
+                else if (hit.collider.gameObject.CompareTag("salve"))
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
+                }
+
             }
         }
     }

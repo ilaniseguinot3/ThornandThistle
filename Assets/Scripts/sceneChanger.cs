@@ -5,10 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class sceneManager : MonoBehaviour
 {
-	public string Scene;
+	public string GameScene;
+	public string CreditsScene;
+	public string StartScene;
 
-	public void LoadTheScene()
+	public void LoadTheGame()
 	{
-		SceneManager.LoadScene(Scene);
+		SceneManager.LoadScene(GameScene);
+	}
+
+	public void LoadTheCredits()
+	{
+		SceneManager.LoadScene(CreditsScene);
+	}
+
+	public void LoadStartScene()
+	{
+		SceneManager.LoadScene(StartScene);
 	}
 }
