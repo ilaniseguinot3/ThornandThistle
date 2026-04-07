@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Return
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - speakerName: Customer1
+  - speakerName: Elizabeth
     text: Do you have a cure?? I'm dying over here.
     portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}
   autoCloseOnLastLine: 1

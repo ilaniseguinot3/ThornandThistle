@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wrong
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - speakerName: Customer1
+  - speakerName: Elizabeth
     text: Ugh what is this?! It made the itching WORSE, I am not recommending you
       ANYWHERE.
     portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}
