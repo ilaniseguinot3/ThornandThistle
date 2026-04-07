@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 307f56b3aa3cf6346ab91d2c9d01788d, type: 3}
-  m_Name: Customer1
+  m_Name: Elizabeth
   m_EditorClassIdentifier: Assembly-CSharp::Customer
   customerName: Elizabeth
   portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}
