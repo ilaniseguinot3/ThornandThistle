@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1425e8d71b21947409775e3ec8de06a4, type: 3}
-  m_Name: Wrong
+  m_Name: Return
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
   - speakerName: Customer1
-    text: Wrong dialogue aaaaaaaaaaaaaa
+    text: Do you have a cure?? I'm dying over here.
     portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}
-  autoCloseOnLastLine: 0
-  freezeOnLastLine: 0
+  autoCloseOnLastLine: 1
+  freezeOnLastLine: 1
