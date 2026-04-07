@@ -6,6 +6,8 @@ public class TestInventory : MonoBehaviour
     public Ingredient testIngredient2;
     public Ingredient testIngredient3;
     public Ingredient testIngredient4;
+    public Ingredient testIngredient5;
+    public Ingredient testIngredient6;
 
     void Start()
     {
@@ -22,6 +24,10 @@ public class TestInventory : MonoBehaviour
                 InventoryManager.Instance.AddIngredient(testIngredient3, 7);
             if (testIngredient4 != null)
                 InventoryManager.Instance.AddIngredient(testIngredient4, 4);
+            if (testIngredient5 != null)
+                InventoryManager.Instance.AddIngredient(testIngredient5, 4);
+            if (testIngredient6 != null)
+                InventoryManager.Instance.AddIngredient(testIngredient6, 4);
 
             Debug.Log("🧪 Test ingredients added to inventory!");
         }
