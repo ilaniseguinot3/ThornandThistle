@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307f56b3aa3cf6346ab91d2c9d01788d, type: 3}
   m_Name: Customer1
   m_EditorClassIdentifier: Assembly-CSharp::Customer
-  customerName: Customer1
+  customerName: Elizabeth
   portrait: {fileID: 21300000, guid: a64af2a06c208a9419112deb8ceeb4e2, type: 3}
   illness: {fileID: 11400000, guid: ff0bf125113b3b04d957dca25b9d65f5, type: 2}
   arrivalDialogue: {fileID: 11400000, guid: 8a06f137f7c6fab4fa26af92a6e145f8, type: 2}
