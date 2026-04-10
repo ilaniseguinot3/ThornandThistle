@@ -807,81 +807,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105385858}
   m_CullTransparentMesh: 1
---- !u!1 &121596525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 121596526}
-  - component: {fileID: 121596528}
-  - component: {fileID: 121596527}
-  m_Layer: 5
-  m_Name: Crosshair
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &121596526
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121596525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 344872380}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &121596527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121596525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 804f4006c81a9c04e83499dd8470340d, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &121596528
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121596525}
-  m_CullTransparentMesh: 1
 --- !u!4 &126923737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cb7c3a26c80d5f54c9152b716432adfa, type: 3}
@@ -1333,108 +1258,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f128eb13183a97c4d929b1acd6beec74, type: 3}
---- !u!1 &344872379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 344872380}
-  - component: {fileID: 344872383}
-  - component: {fileID: 344872382}
-  - component: {fileID: 344872381}
-  m_Layer: 5
-  m_Name: CrosshairCanvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &344872380
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344872379}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 121596526}
-  m_Father: {fileID: 1003110675}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &344872381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344872379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &344872382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344872379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &344872383
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344872379}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1001 &424325744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3677,7 +3500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9894717
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3743,14 +3566,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ingredient2
       objectReference: {fileID: 0}
-    - target: {fileID: 6328977225070213924, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
-      propertyPath: crosshairs
-      value: 
-      objectReference: {fileID: 121596525}
-    - target: {fileID: 6328977225070213924, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
-      propertyPath: activeMouse
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6419167099991244896, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.63
@@ -3788,9 +3603,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 57645007}
-    - targetCorrespondingSourceObject: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 344872380}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3444970516361363152, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
       insertIndex: -1
@@ -4728,8 +4540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   dialogueUI: {fileID: 71341200}
-  crosshairs: {fileID: 121596525}
-  playerMovementMouse: {fileID: 2037357540}
 --- !u!1 &1499649520
 GameObject:
   m_ObjectHideFlags: 0
@@ -5203,8 +5013,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.07358059, y: 0.027920606, z: 0.0710856}
-  m_Center: {x: -0.00992887, y: 0.010521539, z: 0.0070442227}
+  m_Size: {x: 0.09217894, y: 0.027920606, z: 0.083547175}
+  m_Center: {x: -0.00062976364, y: 0.010521539, z: 0.0008135213}
 --- !u!1001 &1657142877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6022,8 +5832,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.11224783, y: 0.06843919, z: 0.11267022}
-  m_Center: {x: 0.00940464, y: -0.009737779, z: -0.0137480525}
+  m_Size: {x: 0.11224783, y: 0.027920606, z: 0.11267022}
+  m_Center: {x: 0.009404642, y: 0.010521538, z: -0.013748053}
 --- !u!1001 &1941941231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6407,8 +6217,6 @@ MonoBehaviour:
   reach: 10
   diagnosisCanvas: {fileID: 71341194}
   dialogueToPlay: {fileID: 11400000, guid: cc123f3d5d954904082bb3f2b452fe79, type: 2}
-  playerMovementMouse: {fileID: 2037357540}
-  crosshairs: {fileID: 121596525}
 --- !u!136 &2037357538
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6432,17 +6240,6 @@ CapsuleCollider:
   m_Height: 6.84
   m_Direction: 1
   m_Center: {x: 0, y: -1.65, z: 0}
---- !u!114 &2037357540 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6328977225070213924, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
-  m_PrefabInstance: {fileID: 1194944304}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037357518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c1fd67ab60fae46955d4cb81fb60fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerMovementScript
 --- !u!1 &2042034683 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6bdc375b9b955e041839a57e6d96ad62, type: 3}

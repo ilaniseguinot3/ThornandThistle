@@ -16,8 +16,10 @@ public class DialogueManager : MonoBehaviour
     private bool waitingForInput = false;
     private bool isTyping = false;
     private bool isFrozen = false;
+    public GameObject crosshairs;
     private Action onCompleteCallback;
     private Action onFrozenCallback;
+    public playerMovementScript playerMovementMouse;
 
     private void Awake()
     {
@@ -66,6 +68,11 @@ public class DialogueManager : MonoBehaviour
         isFrozen = false;
         onCompleteCallback = onComplete;
         onFrozenCallback = onFrozen;
+
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+
+
         ShowCurrentLine();
     }
 
@@ -156,6 +163,9 @@ public class DialogueManager : MonoBehaviour
         onCompleteCallback?.Invoke();
         onCompleteCallback = null;
         onFrozenCallback = null;
+        playerMovementMouse.activeMouse = true;
+        crosshairs.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
         Debug.Log("✅ Dialogue ended");
     }
 
@@ -169,6 +179,9 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = null;
         onCompleteCallback = null;
         onFrozenCallback = null;
+        playerMovementMouse.activeMouse = true;
+        crosshairs.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
         dialogueUI.Hide();
     }
 }
