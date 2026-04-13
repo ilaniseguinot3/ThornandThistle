@@ -7,5 +7,5 @@ public class Ingredient : ScriptableObject
     public Sprite icon;
     public string category;
     public int quantity;
-    public int money; // unique identifier
+    public int cost; // unique identifier
 }

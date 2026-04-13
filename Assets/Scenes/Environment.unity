@@ -7451,6 +7451,7 @@ GameObject:
   - component: {fileID: 1278010648399932707}
   - component: {fileID: 3327517380057783352}
   - component: {fileID: 3889014384065858254}
+  - component: {fileID: 3889014384065858255}
   m_Layer: 0
   m_Name: InventoryGameManager
   m_TagString: Untagged
@@ -8732,6 +8733,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2029e3f504c5e843bf2a813bea333c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CraftingManager
+--- !u!114 &3889014384065858255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386740124923833174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb4726819193524dafc0fa5d545ce4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoneyManager
+  startingGold: 100
 --- !u!222 &3926666445336492890
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9790,7 +9804,7 @@ GameObject:
   - component: {fileID: 5667471274147549076}
   - component: {fileID: 3304436515668624076}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Money Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10748,6 +10762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7879292076921359218}
+  - component: {fileID: 8476288566258795687}
   m_Layer: 5
   m_Name: Money Bar
   m_TagString: Untagged
@@ -10755,6 +10770,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8476288566258795687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476288566258795686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b1e0069d18d6040ae4d9a00b57dcb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoneyUI
+  goldText: {fileID: 3304436515668624076}
 --- !u!1 &8516455803072085856
 GameObject:
   m_ObjectHideFlags: 0
