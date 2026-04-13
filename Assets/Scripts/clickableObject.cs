@@ -42,7 +42,7 @@ public class clickableObject : MonoBehaviour
                 {
                     // open the diagnosis canvas
                     print("clicked on door!");
-                    playerMovementMouse.activeMouse = true;
+                    playerMovementMouse.activeMouse = false;
                     diagnosisCanvas.SetActive(true);
                     crosshairs.SetActive(false);
                     Cursor.lockState = CursorLockMode.None;
