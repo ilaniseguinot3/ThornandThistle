@@ -14,4 +14,5 @@ public class Recipe : ScriptableObject
     public List<IngredientRequirement> ingredients;
     public Potion resultPotion;
     public int resultAmount = 1;
+    public int goldReward = 15; // earned when this potion is given to a patient
 }
