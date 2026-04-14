@@ -15,3 +15,4 @@ MonoBehaviour:
   potionName: Potion2
   icon: {fileID: 21300000, guid: 8504d35699d18c4498cae9fc02fcb9c1, type: 3}
   quantity: 0
+  sourceRecipe: {fileID: 11400000, guid: 3c2df4690cd0c504dbaeca14f0955afd, type: 2}

@@ -74,7 +74,6 @@ public class CustomerManager : MonoBehaviour
         Debug.Log("💊 Waiting for potion selection...");
     }
 
-    // Called from PotionSlotUI when GameState.Diagnosing is true
     public void EvaluatePotion(Potion selectedPotion)
     {
         if (!waitingForPotion || currentCustomer == null) return;
@@ -87,14 +86,17 @@ public class CustomerManager : MonoBehaviour
 
         if (correct)
         {
-            // Add your money hook here
-            Debug.Log($"✅ Correct! +{correctPotionReward} gold");
-            // e.g. MoneyManager.Instance.AddMoney(correctPotionReward);
+            int reward = selectedPotion.sourceRecipe != null
+                ? selectedPotion.sourceRecipe.goldReward
+                : correctPotionReward; // fallback to flat value if no recipe linked
+
+            MoneyManager.Instance.Earn(reward);
+            Debug.Log($"✅ Correct! +{reward}g");
         }
         else
         {
-            Debug.Log($"❌ Wrong! -{wrongPotionPenalty} gold");
-            // e.g. MoneyManager.Instance.DeductMoney(wrongPotionPenalty);
+            MoneyManager.Instance.TrySpend(wrongPotionPenalty);
+            Debug.Log($"❌ Wrong! -{wrongPotionPenalty}g");
         }
 
         OnPotionEvaluated?.Invoke(correct);
@@ -103,10 +105,9 @@ public class CustomerManager : MonoBehaviour
 
     public void ApplyPenalty()
     {
-        Debug.Log($"💸 Penalty: -{wrongPotionPenalty}");
-        // e.g. MoneyManager.Instance.DeductMoney(wrongPotionPenalty);
+        MoneyManager.Instance.TrySpend(wrongPotionPenalty);
+        Debug.Log($"💸 Penalty: -{wrongPotionPenalty}g");
     }
-
     // Called after response dialogue ends
     public void FinishCurrentCustomer()
     {
