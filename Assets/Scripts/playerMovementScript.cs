@@ -4,12 +4,17 @@ using System.Collections;
 
 public class playerMovementScript : MonoBehaviour
 {
+    public GameObject crosshairs;
+    public bool activeMouse;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // Lock the cursor to the center of the screen
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
+        // Show crosshairs
+        crosshairs.SetActive(true);
+        activeMouse = true;
     }
 
      
@@ -25,35 +30,36 @@ public class playerMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        // if middle mouse button is clicked, move without Cursor
-        // check if mouse has moved, if it has, rotate the camera and update yaw and pitch
-        if (Mouse.current == null)
-            return;
-        else if (Mouse.current.middleButton.isPressed)
+        if (activeMouse)
         {
-            // Lock the cursor to the center of the screen
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = true;
-
-            Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-
-            yaw += mouseDelta.x * horizontalSpeed;
-            pitch -= mouseDelta.y * verticalSpeed;
-
-            // clamp pitch so camera cannot invert
-            pitch = Mathf.Clamp(pitch, -89f, 89f);
-
-            transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
-
             // get current key pressed
             var key = Keyboard.current;
-
-            // if nothing is being pressed, return
+            // if nothing return
             if (key == null)
                 return;
-            // otherwise move accordingly
-            else 
+
+            else if (key.leftShiftKey.isPressed)
             {
+                crosshairs.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {   
+                crosshairs.SetActive(true);
+                // Lock the cursor to the center of the screen
+                Cursor.lockState = CursorLockMode.Locked;
+
+                // check if mouse has moved, if it has, rotate the camera and update yaw and pitch
+                Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+
+                yaw += mouseDelta.x * horizontalSpeed;
+                pitch -= mouseDelta.y * verticalSpeed;
+
+                // clamp pitch so camera cannot invert
+                pitch = Mathf.Clamp(pitch, -89f, 89f);
+
+                transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+
                 // create direction vectors based on local foward and right directions
                 Vector3 facingDirection = this.transform.forward;
                 Vector3 rightDirection = this.transform.right;
@@ -96,14 +102,7 @@ public class playerMovementScript : MonoBehaviour
                     // actually move the camera/player
                     transform.position += move * playerSpeed * Time.deltaTime;
                 }
-                Cursor.visible = true;
             }
-        }
-        // otherwise just move the cursor
-        else
-        {
-            // Unlock the cursor
-            Cursor.lockState = CursorLockMode.None;
         }
     }
 }

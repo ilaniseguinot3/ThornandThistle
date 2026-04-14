@@ -10,6 +10,9 @@ public class clickableObject : MonoBehaviour
     public GameObject diagnosisCanvas;
     public DialogueData dialogueToPlay;
 
+    public playerMovementScript playerMovementMouse;
+    public GameObject crosshairs;
+
 
     void Update()
     {
@@ -32,14 +35,17 @@ public class clickableObject : MonoBehaviour
             // if it is within reach
             if (Physics.Raycast(ray, out hit, reach, layerMask))
             {
-                 //Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
+                //Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
 
                 // and it has clickable tag
                 if (hit.collider.gameObject.CompareTag("door"))
                 {
                     // open the diagnosis canvas
                     print("clicked on door!");
+                    playerMovementMouse.activeMouse = false;
                     diagnosisCanvas.SetActive(true);
+                    crosshairs.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
                     DialogueManager.Instance.StartDialogue(dialogueToPlay);
                 }
                 else if (hit.collider.gameObject.CompareTag("cauldron"))

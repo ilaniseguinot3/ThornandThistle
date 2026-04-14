@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 529fc049d783ef94fa31a04dee747e05, type: 3}
   category: 
   quantity: 2
-  id: 0
+  cost: 5
