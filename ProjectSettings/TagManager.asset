@@ -18,6 +18,7 @@ TagManager:
   - salve
   - film_camera
   - tincture
+  - poultice
   layers:
   - Default
   - TransparentFX
