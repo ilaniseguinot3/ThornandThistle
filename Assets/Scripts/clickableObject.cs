@@ -12,6 +12,7 @@ public class clickableObject : MonoBehaviour
 
     public playerMovementScript playerMovementMouse;
     public GameObject crosshairs;
+    public GameObject fire;
 
 
     void Update()
@@ -48,11 +49,10 @@ public class clickableObject : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     DialogueManager.Instance.StartDialogue(dialogueToPlay);
                 }
-                else if (hit.collider.gameObject.CompareTag("cauldron"))
-                {
-                    // do something
-                    print("clicked on cauldron!");
-                }
+                //else if (hit.collider.gameObject.CompareTag("cauldron"))
+                //{
+                //    fire.SetActive(true);
+                //}
                 else if (hit.collider.gameObject.CompareTag("milk thistle"))
                 {
                     hit.collider.gameObject.SetActive(false);
