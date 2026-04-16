@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4c0101a4146f7640a1ed7113d4a5354, type: 3}
-  m_Name: Potion2
+  m_Name: Poultice
   m_EditorClassIdentifier: Assembly-CSharp::Potion
-  potionName: Potion2
-  icon: {fileID: 21300000, guid: 8504d35699d18c4498cae9fc02fcb9c1, type: 3}
+  potionName: Poultice
+  icon: {fileID: 21300000, guid: 39c74cc4554426a4d9a9ca6f34710e76, type: 3}
   quantity: 0
-  sourceRecipe: {fileID: 11400000, guid: 3c2df4690cd0c504dbaeca14f0955afd, type: 2}
+  sourceRecipe: {fileID: 11400000, guid: 54489c49f779aa741afdee5c8ca7f946, type: 2}

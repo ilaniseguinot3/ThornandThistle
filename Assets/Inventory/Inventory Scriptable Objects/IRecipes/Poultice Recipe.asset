@@ -10,12 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9220b08df45f2de48b58291c555cc75f, type: 3}
-  m_Name: Recipe2
+  m_Name: Poultice Recipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   ingredients:
+  - ingredient: {fileID: 11400000, guid: 8fcd86a786603084c86543e1beb8a2e2, type: 2}
+    requiredAmount: 1
   - ingredient: {fileID: 11400000, guid: 55ed67b3bf86e8845a0d35214052b93d, type: 2}
     requiredAmount: 1
-  - ingredient: {fileID: 11400000, guid: 52a645b45bb4abf47874ecbcbf9fefac, type: 2}
+  - ingredient: {fileID: 11400000, guid: a28d3547b95bba4419e66f76e9db4b4e, type: 2}
     requiredAmount: 1
-  resultPotion: {fileID: 11400000, guid: a012fe30236decc49864cf42a85b30d9, type: 2}
+  - ingredient: {fileID: 11400000, guid: 58fba5d4e02cdd74c9eb2cd24252f543, type: 2}
+    requiredAmount: 1
+  resultPotion: {fileID: 11400000, guid: 70442d28ebb53de4692fe7e193a58f42, type: 2}
   resultAmount: 1
+  goldReward: 15
