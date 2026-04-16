@@ -14273,6 +14273,10 @@ PrefabInstance:
       propertyPath: activeMouse
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6328977225070213924, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
+      propertyPath: playerSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6419167099991244896, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.63
