@@ -32,6 +32,11 @@ public class DoorInteraction : MonoBehaviour
 
     private void StartArrival()
     {
+        // Hide exclamation when player clicks door
+        if (CustomerManager.Instance.exclamationObject != null){
+            CustomerManager.Instance.exclamationObject.SetActive(false);
+        }
+
         CustomerManager.Instance.StartNextCustomer();
         currentCustomer = CustomerManager.Instance.CurrentCustomer;
         currentStage = Stage.ArrivalPlaying;

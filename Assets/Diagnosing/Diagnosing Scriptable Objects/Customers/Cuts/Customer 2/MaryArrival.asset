@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1425e8d71b21947409775e3ec8de06a4, type: 3}
+  m_Name: MaryArrival
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - speakerName: Mary
+    text: I fear I am not long for this mortal coil. I've seen my own blood leaking
+      from my body. There is no wrath like that of a nice, crisp, fresh piece of
+      paper thirsty for the taste of violence. Please, doctor, I require lotions
+      and potions, or I fear I may not be long for this world.
+    portrait: {fileID: 21300000, guid: e3682238c9f5c28439e2d4b3584a4b86, type: 3}
+  autoCloseOnLastLine: 0
+  freezeOnLastLine: 0
