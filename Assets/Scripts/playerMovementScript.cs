@@ -19,8 +19,8 @@ public class playerMovementScript : MonoBehaviour
 
      
     // set default speeds
-    float horizontalSpeed = 0.5f;
-    float verticalSpeed = 0.5f;
+    float horizontalSpeed = 0.1f;
+    float verticalSpeed = 0.1f;
     public int playerSpeed = 9;
 
     // save yaw and pitch (camera rotation)

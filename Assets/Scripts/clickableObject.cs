@@ -12,6 +12,7 @@ public class clickableObject : MonoBehaviour
 
     public playerMovementScript playerMovementMouse;
     public GameObject crosshairs;
+    public GameObject fire;
 
 
     void Update()
@@ -48,47 +49,55 @@ public class clickableObject : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     DialogueManager.Instance.StartDialogue(dialogueToPlay);
                 }
-                else if (hit.collider.gameObject.CompareTag("cauldron"))
-                {
-                    // do something
-                    print("clicked on cauldron!");
-                }
+                //else if (hit.collider.gameObject.CompareTag("cauldron"))
+                //{
+                //    fire.SetActive(true);
+                //}
                 else if (hit.collider.gameObject.CompareTag("milk thistle"))
                 {
-                    // do something
-                    print("clicked on milk thistle!");
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
                 }
                 else if (hit.collider.gameObject.CompareTag("comfrey leaf"))
                 {
-                    // do something
-                    print("clicked on comfrey leaf!");
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
                 }
                 else if (hit.collider.gameObject.CompareTag("calendula"))
                 {
-                    // do something
-                    print("clicked on calendula!");
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
                 }
                 else if (hit.collider.gameObject.CompareTag("plantain"))
                 {
-                    // do something
-                    print("clicked on plantain!");
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
                 }
                 else if (hit.collider.gameObject.CompareTag("white oak bark"))
                 {
-                    // do something
-                    print("clicked on white oak bark!");
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
                 }
                 else if (hit.collider.gameObject.CompareTag("echinacea"))
                 {
-                    // do something
-                    print("clicked on echinacea!");
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
                 }
                 else if (hit.collider.gameObject.CompareTag("salve"))
                 {
                     hit.collider.gameObject.SetActive(false);
                     // add to inventory
                 }
-
+                else if (hit.collider.gameObject.CompareTag("poultice"))
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
+                }
+                else if (hit.collider.gameObject.CompareTag("tincture"))
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    // add to inventory
+                }
             }
         }
     }

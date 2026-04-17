@@ -37,6 +37,11 @@ public class CustomerManager : MonoBehaviour
     private void Start()
     {
         ShufflePool();
+        if (exclamationObject != null)
+        exclamationObject.SetActive(true);
+
+        if (doorKnockSound != null)
+            doorKnockSound.Play();
     }
 
     private void ShufflePool()
@@ -118,12 +123,22 @@ public class CustomerManager : MonoBehaviour
         StartCoroutine(QueueNextCustomerAfterDelay());
     }
 
+    [Header("Next Customer Cue")]
+    public GameObject exclamationObject;
+    public AudioSource doorKnockSound;
+
     private IEnumerator QueueNextCustomerAfterDelay()
     {
         float delay = UnityEngine.Random.Range(minDelay, maxDelay);
         Debug.Log($"⏳ Next customer in {delay:F1} seconds...");
         yield return new WaitForSeconds(delay);
+        
         Debug.Log("🚪 A new customer is ready — click the door!");
-        // You can trigger a visual/audio cue here e.g. door knock sound
+        
+        if (exclamationObject != null)
+            exclamationObject.SetActive(true);
+        
+        if (doorKnockSound != null)
+            doorKnockSound.Play();
     }
 }

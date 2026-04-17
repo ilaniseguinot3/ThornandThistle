@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1425e8d71b21947409775e3ec8de06a4, type: 3}
+  m_Name: NieveArrival
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - speakerName: Nieve
+    text: I'm itchy. You hear me I'm ITCHY. You gonna do somethin about it? You gonna
+      make me a lotion? WELL GOOD. THAT'S YOUR JOB. TO MAKE ME LOTION. GET COOKING
+    portrait: {fileID: 21300000, guid: 50f00414ad6290849a4f40f3ad20881f, type: 3}
+  autoCloseOnLastLine: 0
+  freezeOnLastLine: 0

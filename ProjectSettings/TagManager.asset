@@ -17,6 +17,8 @@ TagManager:
   - echinacea
   - salve
   - film_camera
+  - tincture
+  - poultice
   layers:
   - Default
   - TransparentFX
