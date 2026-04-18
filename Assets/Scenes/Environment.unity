@@ -1643,6 +1643,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cb7c3a26c80d5f54c9152b716432adfa, type: 3}
   m_PrefabInstance: {fileID: 1951568084}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &140862075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140862076}
+  - component: {fileID: 140862077}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &140862076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140862075}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.1378403, y: 2.2728333, z: -1.9446497}
+  m_LocalScale: {x: 3.6944683, y: 4.369778, z: 3.3634977}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1635309365510528544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &140862077
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140862075}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &151015877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8475,29 +8528,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!136 &996070768
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996070742}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.06296374
-  m_Height: 0.04850298
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.009119412, z: 0}
 --- !u!4 &1003110675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
@@ -14408,6 +14438,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 5.17
       objectReference: {fileID: 0}
+    - target: {fileID: 1519744205424688597, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.85
+      objectReference: {fileID: 0}
     - target: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.10297
@@ -19275,9 +19309,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 996070767}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 996070768}
   m_SourcePrefab: {fileID: 100100000, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
 --- !u!1001 &1865204795
 PrefabInstance:
@@ -21703,6 +21734,7 @@ Transform:
   m_Children:
   - {fileID: 1499649521}
   - {fileID: 216689394}
+  - {fileID: 140862076}
   - {fileID: 842793446}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22567,6 +22599,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JournalUIManager
   journalVisuals: {fileID: 8617283203269286400}
+  audioSource: {fileID: 6394729799482932767}
+  openSound: {fileID: 8300000, guid: 50c71b427424ea545a78e2a2b5535716, type: 3}
+  closeSound: {fileID: 8300000, guid: 50c71b427424ea545a78e2a2b5535716, type: 3}
 --- !u!222 &4278208449053307888
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24881,6 +24916,8 @@ MonoBehaviour:
   ingredientLabels: []
   nextButton: {fileID: 1470169982}
   prevButton: {fileID: 1796612421}
+  audioSource: {fileID: 6394729799482932767}
+  pageTurnSound: {fileID: 8300000, guid: 50c71b427424ea545a78e2a2b5535716, type: 3}
 --- !u!1 &9109334522543791525
 GameObject:
   m_ObjectHideFlags: 0

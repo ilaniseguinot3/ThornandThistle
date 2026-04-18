@@ -34,6 +34,10 @@ public class RecipeBook : MonoBehaviour
     public Button nextButton;
     public Button prevButton;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip pageTurnSound;
+
     private int _currentIndex = 0;
 
     void Start()
@@ -46,13 +50,21 @@ public class RecipeBook : MonoBehaviour
     void OnNextClicked()
     {
         _currentIndex = (_currentIndex + 1) % recipes.Count;
+        PlayPageTurn();
         DisplayRecipe(_currentIndex);
     }
 
     void OnPrevClicked()
     {
         _currentIndex = (_currentIndex - 1 + recipes.Count) % recipes.Count;
+        PlayPageTurn();
         DisplayRecipe(_currentIndex);
+    }
+
+    void PlayPageTurn()
+    {
+        if (audioSource != null && pageTurnSound != null)
+            audioSource.PlayOneShot(pageTurnSound);
     }
 
     void DisplayRecipe(int index)
