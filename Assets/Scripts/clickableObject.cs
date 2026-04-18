@@ -3,45 +3,38 @@ using UnityEngine.InputSystem;
 
 public class clickableObject : MonoBehaviour
 {
-
-    // how far away items can be clicked from
     public float reach = 6f;
-    // canvases
     public GameObject diagnosisCanvas;
     public DialogueData dialogueToPlay;
-
     public playerMovementScript playerMovementMouse;
     public GameObject crosshairs;
     public GameObject fire;
 
+    [Header("Ingredients")]
+    public Ingredient MilkThistle;
+    public Ingredient ComfreyLeaf;
+    public Ingredient Calendula;
+    public Ingredient Plantain;
+    public Ingredient WhiteOakBark;
+    public Ingredient Echinacea;
+    public Ingredient Salve;
+    public Ingredient Poultice;
+    public Ingredient Tincture;
 
     void Update()
     {
-        // if mouse is not available for some reason return
         if (Mouse.current == null) return;
 
-        // clicking objects
-        // if player presses the lmb:
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            // use raycasting to find the object
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
-
-            // add mask to ignore shelf
             int layerMask = ~LayerMask.GetMask("ClickableShelf");
 
-           
-
-            // if it is within reach
             if (Physics.Raycast(ray, out hit, reach, layerMask))
             {
-                //Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
-
-                // and it has clickable tag
                 if (hit.collider.gameObject.CompareTag("door"))
                 {
-                    // open the diagnosis canvas
                     print("clicked on door!");
                     playerMovementMouse.activeMouse = false;
                     diagnosisCanvas.SetActive(true);
@@ -49,54 +42,50 @@ public class clickableObject : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     DialogueManager.Instance.StartDialogue(dialogueToPlay);
                 }
-                //else if (hit.collider.gameObject.CompareTag("cauldron"))
-                //{
-                //    fire.SetActive(true);
-                //}
                 else if (hit.collider.gameObject.CompareTag("milk thistle"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(MilkThistle, 1);
                 }
                 else if (hit.collider.gameObject.CompareTag("comfrey leaf"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(ComfreyLeaf, 1);
                 }
                 else if (hit.collider.gameObject.CompareTag("calendula"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(Calendula, 1);
                 }
                 else if (hit.collider.gameObject.CompareTag("plantain"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(Plantain, 1);
                 }
                 else if (hit.collider.gameObject.CompareTag("white oak bark"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(WhiteOakBark, 1);
                 }
                 else if (hit.collider.gameObject.CompareTag("echinacea"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(Echinacea, 1);
                 }
                 else if (hit.collider.gameObject.CompareTag("salve"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(Salve, 1);
                 }
                 else if (hit.collider.gameObject.CompareTag("poultice"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(Poultice, 1);
                 }
                 else if (hit.collider.gameObject.CompareTag("tincture"))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    // add to inventory
+                    InventoryManager.Instance.AddIngredient(Tincture, 1);
                 }
             }
         }

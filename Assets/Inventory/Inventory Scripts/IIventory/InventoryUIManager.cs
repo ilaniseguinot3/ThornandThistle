@@ -16,6 +16,7 @@ public class InventoryUIManager : MonoBehaviour, PlayerControls.IUIActions
     {
         controls = new PlayerControls();
         controls.UI.SetCallbacks(this);
+        DontDestroyOnLoad(gameObject);
         Debug.Log("✅ Input system initialized");
     }
 
@@ -72,9 +73,11 @@ public class InventoryUIManager : MonoBehaviour, PlayerControls.IUIActions
 
     private void RefreshInventoryUI()
     {
-        // Clear existing slots
-        foreach (Transform child in contentParent)
-            Destroy(child.gameObject);
+        if (!isOpen) return;
+
+        // DestroyImmediate ensures children are gone before we rebuild
+        for (int i = contentParent.childCount - 1; i >= 0; i--)
+            DestroyImmediate(contentParent.GetChild(i).gameObject);
 
         var allItems = InventoryManager.Instance.GetAllIngredients();
 

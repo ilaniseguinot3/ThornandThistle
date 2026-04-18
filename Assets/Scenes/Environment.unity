@@ -1654,7 +1654,7 @@ GameObject:
   - component: {fileID: 140862076}
   - component: {fileID: 140862077}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Cauldron Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1673,7 +1673,7 @@ Transform:
   m_LocalScale: {x: 3.6944683, y: 4.369778, z: 3.3634977}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1635309365510528544}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &140862077
 BoxCollider:
@@ -20573,6 +20573,15 @@ MonoBehaviour:
   playerMovementMouse: {fileID: 2037357540}
   crosshairs: {fileID: 121596525}
   fire: {fileID: 1176406983}
+  MilkThistle: {fileID: 11400000, guid: ee61be3368b54504ba79cde59589d55e, type: 2}
+  ComfreyLeaf: {fileID: 11400000, guid: a28d3547b95bba4419e66f76e9db4b4e, type: 2}
+  Calendula: {fileID: 11400000, guid: 52a645b45bb4abf47874ecbcbf9fefac, type: 2}
+  Plantain: {fileID: 11400000, guid: d0a9dcb79d0e57d4ab9541973eae0e3e, type: 2}
+  WhiteOakBark: {fileID: 11400000, guid: 55ed67b3bf86e8845a0d35214052b93d, type: 2}
+  Echinacea: {fileID: 11400000, guid: 8fcd86a786603084c86543e1beb8a2e2, type: 2}
+  Salve: {fileID: 11400000, guid: 6e158ff1f5b7df74fb6c876b7cd52553, type: 2}
+  Poultice: {fileID: 11400000, guid: 58fba5d4e02cdd74c9eb2cd24252f543, type: 2}
+  Tincture: {fileID: 11400000, guid: a5cb65af2cebae74eb9a2cc12d01724e, type: 2}
 --- !u!136 &2037357538
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21734,7 +21743,6 @@ Transform:
   m_Children:
   - {fileID: 1499649521}
   - {fileID: 216689394}
-  - {fileID: 140862076}
   - {fileID: 842793446}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24952,6 +24960,7 @@ SceneRoots:
   - {fileID: 1609334957}
   - {fileID: 737958646}
   - {fileID: 1333235289}
+  - {fileID: 140862076}
   - {fileID: 1635309365510528544}
   - {fileID: 1194944304}
   - {fileID: 450489189}

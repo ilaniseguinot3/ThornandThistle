@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc84d25fee5e32c4c94c87eb53a526b7, type: 3}
-  m_Name: White Oak Bark
+  m_Name: SalveTin
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  ingredientName: White Oak Bark
-  icon: {fileID: 21300000, guid: 2d635a76608b6a246979e67dd88bbe88, type: 3}
+  ingredientName: Salve Tin
+  icon: {fileID: 21300000, guid: 27c6e8aaa2bebda4cb0ed5edd39d04e9, type: 3}
   category: 
   quantity: 4
   cost: 5
