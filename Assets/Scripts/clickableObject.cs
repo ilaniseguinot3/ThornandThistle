@@ -33,6 +33,16 @@ public class clickableObject : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, reach, layerMask))
             {
+                if (hit.collider.gameObject.CompareTag("cauldron"))
+                {
+                    // Play the fire particle system
+                    fire.SetActive(true);
+                    ParticleSystem ps = fire.GetComponent<ParticleSystem>();
+                    if(ps != null)
+                        ps.Play();
+                    CauldronManager.Instance.TryCombineIngredients();
+                    Debug.Log("Cauldron clicked — attempting brew!");
+                }
                 if (hit.collider.gameObject.CompareTag("door"))
                 {
                     print("clicked on door!");

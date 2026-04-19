@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 140862077}
   m_Layer: 0
   m_Name: Cauldron Collider
-  m_TagString: Untagged
+  m_TagString: cauldron
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8528,6 +8528,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &996070770
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996070742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06296374
+  m_Height: 0.053039208
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.011387537, z: -0.0000000059885634}
 --- !u!4 &1003110675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
@@ -9587,8 +9610,8 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
-  prewarm: 1
+  looping: 0
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -17076,7 +17099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1556892749}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CauldronCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19294,7 +19317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
       propertyPath: m_TagString
-      value: cauldron
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19309,6 +19332,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 996070767}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 996070770}
   m_SourcePrefab: {fileID: 100100000, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
 --- !u!1001 &1865204795
 PrefabInstance:
@@ -20567,7 +20593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8386dbe2bf1edfc44824883a2d35f324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::clickableObject
-  reach: 10
+  reach: 5
   diagnosisCanvas: {fileID: 71341194}
   dialogueToPlay: {fileID: 11400000, guid: cc123f3d5d954904082bb3f2b452fe79, type: 2}
   playerMovementMouse: {fileID: 2037357540}
