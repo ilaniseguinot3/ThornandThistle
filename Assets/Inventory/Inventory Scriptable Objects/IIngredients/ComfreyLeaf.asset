@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc84d25fee5e32c4c94c87eb53a526b7, type: 3}
-  m_Name: Milk Thistle PreFab
+  m_Name: ComfreyLeaf
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  ingredientName: Milk Thistle
-  icon: {fileID: 21300000, guid: 577b468367ed7834989d72e670d58b7e, type: 3}
+  ingredientName: Comfrey Leaf
+  icon: {fileID: 21300000, guid: 2ea4d495ec002f14790d36cc351398b2, type: 3}
   category: 
-  quantity: 5
+  quantity: 4
   cost: 5

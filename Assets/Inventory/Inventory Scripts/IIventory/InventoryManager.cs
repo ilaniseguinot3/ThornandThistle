@@ -23,10 +23,20 @@ public class InventoryManager : MonoBehaviour
     // ================= Ingredients =================
     public void AddIngredient(Ingredient ingredient, int amount)
     {
+
+        if (ingredient == null)
+        {
+            Debug.LogError("❌ AddIngredient called with NULL ingredient!");
+            return;
+        }
+        
         if (ingredientInventory.ContainsKey(ingredient))
             ingredientInventory[ingredient].quantity += amount;
         else
             ingredientInventory.Add(ingredient, new InventoryItem(ingredient, amount));
+
+        Debug.Log($"✅ Inventory now has {ingredientInventory[ingredient].quantity}x {ingredient.ingredientName}");
+        Debug.Log($"📦 Total unique ingredients in inventory: {ingredientInventory.Count}");
 
         InventoryEvents.OnInventoryChanged.Invoke();
     }

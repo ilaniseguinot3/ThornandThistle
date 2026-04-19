@@ -1,2 +1,25 @@
 fileFormatVersion: 2
 guid: 8386dbe2bf1edfc44824883a2d35f324
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - diagnosisCanvas: {instanceID: 0}
+  - dialogueToPlay: {instanceID: 0}
+  - playerMovementMouse: {instanceID: 0}
+  - crosshairs: {instanceID: 0}
+  - fire: {instanceID: 0}
+  - milkThistle: {fileID: 11400000, guid: ee61be3368b54504ba79cde59589d55e, type: 2}
+  - comfreyLeaf: {fileID: 11400000, guid: a28d3547b95bba4419e66f76e9db4b4e, type: 2}
+  - calendula: {fileID: 11400000, guid: 52a645b45bb4abf47874ecbcbf9fefac, type: 2}
+  - plantain: {fileID: 11400000, guid: d0a9dcb79d0e57d4ab9541973eae0e3e, type: 2}
+  - whiteOakBark: {fileID: 11400000, guid: 55ed67b3bf86e8845a0d35214052b93d, type: 2}
+  - echinacea: {fileID: 11400000, guid: 8fcd86a786603084c86543e1beb8a2e2, type: 2}
+  - salve: {fileID: 11400000, guid: 6e158ff1f5b7df74fb6c876b7cd52553, type: 2}
+  - poultice: {fileID: 11400000, guid: 58fba5d4e02cdd74c9eb2cd24252f543, type: 2}
+  - tincture: {fileID: 11400000, guid: a5cb65af2cebae74eb9a2cc12d01724e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

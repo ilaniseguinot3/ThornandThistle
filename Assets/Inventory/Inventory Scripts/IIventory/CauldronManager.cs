@@ -120,9 +120,12 @@ public class CauldronManager : MonoBehaviour
 
             if (matches && recipe.ingredients.Count == currentIngredients.Count)
             {
-                CraftingManager.Instance.Craft(recipe);
-                ClearCauldron();
-                Debug.Log($"✨ Brewed potion: {recipe.resultPotion.potionName}!");
+                // ✅ Only clear if Craft() actually succeeded
+                if (CraftingManager.Instance.Craft(recipe))
+                {
+                    ClearCauldron();
+                    Debug.Log($"✨ Brewed potion: {recipe.resultPotion.potionName}!");
+                }
                 return;
             }
         }

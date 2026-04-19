@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc84d25fee5e32c4c94c87eb53a526b7, type: 3}
-  m_Name: Salve Tin
+  m_Name: TinctureBottle
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  ingredientName: Salve Tin
-  icon: {fileID: 21300000, guid: 27c6e8aaa2bebda4cb0ed5edd39d04e9, type: 3}
+  ingredientName: Tincture Bottle
+  icon: {fileID: 21300000, guid: 5789263caef06ab4b85940dbb52439f6, type: 3}
   category: 
   quantity: 4
   cost: 5
