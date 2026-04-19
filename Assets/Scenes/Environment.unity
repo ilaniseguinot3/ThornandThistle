@@ -1643,59 +1643,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cb7c3a26c80d5f54c9152b716432adfa, type: 3}
   m_PrefabInstance: {fileID: 1951568084}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &140862075
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 140862076}
-  - component: {fileID: 140862077}
-  m_Layer: 0
-  m_Name: Cauldron Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &140862076
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140862075}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1378403, y: 2.2728333, z: -1.9446497}
-  m_LocalScale: {x: 3.6944683, y: 4.369778, z: 3.3634977}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &140862077
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140862075}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &151015877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4909,6 +4856,11 @@ MonoBehaviour:
   customerPool:
   - {fileID: 11400000, guid: 9aad8d1bf3147314b80310dd41d06368, type: 2}
   - {fileID: 11400000, guid: d521df062a9647e4aacb96484ba0e556, type: 2}
+  - {fileID: 11400000, guid: 673b664278b41ae4989a71364fc2208e, type: 2}
+  - {fileID: 11400000, guid: 482a014d8af816543999990ea862aa54, type: 2}
+  - {fileID: 11400000, guid: 805fe1149ae2bd9419064cbaf86b0902, type: 2}
+  - {fileID: 11400000, guid: d5491642a683d034f9a3e41c122f8eb7, type: 2}
+  - {fileID: 11400000, guid: 7c8d3bafdd616834fafc9f5e430e26dd, type: 2}
   correctPotionReward: 10
   wrongPotionPenalty: 5
   minDelay: 2
@@ -8528,6 +8480,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &996070770
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996070742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 72713781330414003, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
 --- !u!4 &1003110675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2014498829514501146, guid: 89fc733552f17634d8e83e3f0b3f71f8, type: 3}
@@ -19309,6 +19283,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 996070767}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 996070770}
   m_SourcePrefab: {fileID: 100100000, guid: b2ad46d4026f8ab44bddc8bf1979bfea, type: 3}
 --- !u!1001 &1865204795
 PrefabInstance:
@@ -21782,7 +21759,7 @@ MonoBehaviour:
   allRecipes:
   - {fileID: 11400000, guid: c482ae2b9198cdc49a57727da6fb2958, type: 2}
   - {fileID: 11400000, guid: 3c2df4690cd0c504dbaeca14f0955afd, type: 2}
-  - {fileID: 11400000, guid: 3c2df4690cd0c504dbaeca14f0955afd, type: 2}
+  - {fileID: 11400000, guid: 54489c49f779aa741afdee5c8ca7f946, type: 2}
 --- !u!224 &1821925450402265736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24960,7 +24937,6 @@ SceneRoots:
   - {fileID: 1609334957}
   - {fileID: 737958646}
   - {fileID: 1333235289}
-  - {fileID: 140862076}
   - {fileID: 1635309365510528544}
   - {fileID: 1194944304}
   - {fileID: 450489189}
