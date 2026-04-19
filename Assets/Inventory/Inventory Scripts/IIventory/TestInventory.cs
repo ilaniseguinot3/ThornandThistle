@@ -18,25 +18,25 @@ public class TestInventory : MonoBehaviour
         if (InventoryManager.Instance != null)
         {
             if (testIngredient1 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient1, 5);
+                InventoryManager.Instance.AddIngredient(testIngredient1, 1);
 
             if (testIngredient2 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient2, 3);
+                InventoryManager.Instance.AddIngredient(testIngredient2, 1);
 
             if (testIngredient3 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient3, 7);
+                InventoryManager.Instance.AddIngredient(testIngredient3, 1);
             if (testIngredient4 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient4, 4);
+                InventoryManager.Instance.AddIngredient(testIngredient4, 1);
             if (testIngredient5 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient5, 4);
+                InventoryManager.Instance.AddIngredient(testIngredient5, 1);
             if (testIngredient6 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient6, 4);
+                InventoryManager.Instance.AddIngredient(testIngredient6, 1);
             if (testIngredient7 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient7, 4);
+                InventoryManager.Instance.AddIngredient(testIngredient7, 1);
             if (testIngredient8 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient8, 4);
+                InventoryManager.Instance.AddIngredient(testIngredient8, 1);
             if (testIngredient9 != null)
-                InventoryManager.Instance.AddIngredient(testIngredient9, 4);
+                InventoryManager.Instance.AddIngredient(testIngredient9, 1);
 
 
             Debug.Log("🧪 Test ingredients added to inventory!");

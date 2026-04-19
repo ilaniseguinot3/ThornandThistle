@@ -15,6 +15,6 @@ MonoBehaviour:
   lines:
   - speakerName: Jonathan
     text: Thanks dude.
-    portrait: {fileID: 21300000, guid: 20fd158208f18034bb91eded34ee65a8, type: 3}
+    portrait: {fileID: 21300000, guid: 925fe2eb3f7e9bf41bdbec64ebda027b, type: 3}
   autoCloseOnLastLine: 0
   freezeOnLastLine: 0

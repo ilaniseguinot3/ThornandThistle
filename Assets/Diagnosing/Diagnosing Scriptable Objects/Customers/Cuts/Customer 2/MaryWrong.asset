@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MaryWrong
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - speakerName: Mark
+  - speakerName: Mary
     text: I- I can't feel my legs... the bloodloss... *faints*
     portrait: {fileID: 21300000, guid: e3682238c9f5c28439e2d4b3584a4b86, type: 3}
   autoCloseOnLastLine: 0
