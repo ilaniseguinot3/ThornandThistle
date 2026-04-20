@@ -1,20 +1,34 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class playerMovementScript : MonoBehaviour
 {
     public GameObject crosshairs;
     public bool activeMouse;
+    public 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Lock the cursor to the center of the screen
-        Cursor.lockState = CursorLockMode.Locked;
-        // Show crosshairs
-        crosshairs.SetActive(true);
-        activeMouse = true;
+        // if tutorial scene do opposite
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            // leave the cursor unlocked
+            Cursor.lockState = CursorLockMode.Locked;
+            // hide crosshairs
+            crosshairs.SetActive(true);
+            activeMouse = true;
+        }
+        else
+        {
+            // leave the cursor unlocked
+            Cursor.lockState = CursorLockMode.None;
+            // hide crosshairs
+            crosshairs.SetActive(false);
+            activeMouse = false;
+        }
     }
 
      

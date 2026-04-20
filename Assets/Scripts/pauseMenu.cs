@@ -10,6 +10,14 @@ public class pauseMenu : MonoBehaviour
     //scenes
 	public string CreditsScene;
 	public string StartScene;
+    public string TutorialScene;
+
+    //other variables
+    public GameObject tutorialCanvas;
+    public GameObject pauseCanvas;
+    private bool open;
+    public GameObject crosshairs;
+    public playerMovementScript playerMovementMouse;
 
     // changing the scenes
     public void goToStart()
@@ -24,7 +32,7 @@ public class pauseMenu : MonoBehaviour
 
     public void resumeTheGame()
     {
-        print("resume");
+        
         open = !open;
         // Lock the cursor to the center of the screen
         Cursor.lockState = CursorLockMode.Locked;
@@ -34,16 +42,26 @@ public class pauseMenu : MonoBehaviour
         pauseCanvas.SetActive(false);
     }
 
+    public void closeTutorial()
+    {
+        print("resume");
+        // lock the cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        // Show crosshairs
+        crosshairs.SetActive(true);
+        playerMovementMouse.activeMouse = true;
+        tutorialCanvas.SetActive(false);
+    }
+
+    public void playTutorial()
+    {
+        SceneManager.LoadScene(TutorialScene);
+    }
+
     public void quitTheGame()
     {
         Application.Quit();
     }
-
-    //other variables
-    public GameObject pauseCanvas;
-    private bool open;
-    public GameObject crosshairs;
-    public playerMovementScript playerMovementMouse;
 
     void start()
     {
