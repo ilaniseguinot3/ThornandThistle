@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using UnityEngine;
 
 public class CauldronClickHandler : MonoBehaviour
@@ -22,3 +22,4 @@ public class CauldronClickHandler : MonoBehaviour
         fire.SetActive(false);
     }
 }
+*/
