@@ -7,6 +7,8 @@ using System.Collections.Generic;
 
 public class tutorialManager : MonoBehaviour
 {
+    public clickableObject clicker;
+
     // canvases
     public GameObject movementCanvas;
     public GameObject firstPatientCanvas;
@@ -22,6 +24,7 @@ public class tutorialManager : MonoBehaviour
     {
         movementCanvas.SetActive(false);
         firstPatientCanvas.SetActive(true);
+        clicker.tutorialNum = 1;
     }
     public void showDialogueTutorial()
     {
