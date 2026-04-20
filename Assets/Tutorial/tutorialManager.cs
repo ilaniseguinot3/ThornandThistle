@@ -40,11 +40,13 @@ public class tutorialManager : MonoBehaviour
     {
         bookTutorialCanvas.SetActive(false);
         ingredientTutorialCanvas.SetActive(true);
+        clicker.tutorialNum = 2;
     }
     public void showCauldronTutorial()
     {
         ingredientTutorialCanvas.SetActive(false);
         CauldronTutorial.SetActive(true);
+        clicker.tutorialNum = 3;
     }
     public void showCauldronTutorial2()
     {
