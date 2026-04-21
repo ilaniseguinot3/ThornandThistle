@@ -7,7 +7,7 @@ public class DoorInteraction : MonoBehaviour
     private Stage currentStage = Stage.Idle;
     private Customer currentCustomer;
 
-    private void OnMouseDown()
+/*    private void OnMouseDown()
     {
         if (InventoryUIManager.IsOpen) return;
         if (JournalUIManager.IsOpen) return;
@@ -32,7 +32,7 @@ public class DoorInteraction : MonoBehaviour
                 break;
         }
     }
-
+    */
     private void StartArrival()
     {
         // Hide exclamation when player clicks door
