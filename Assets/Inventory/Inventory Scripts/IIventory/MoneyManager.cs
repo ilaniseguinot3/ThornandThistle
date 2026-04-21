@@ -5,8 +5,8 @@ public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager Instance { get; private set; }
 
-    [Header("Starting Gold")]
-    public int startingGold = 100;
+    [Header("Starting Reputation")]
+    public int startingGold = 3;
 
     private int currentGold;
     public int CurrentGold => currentGold;

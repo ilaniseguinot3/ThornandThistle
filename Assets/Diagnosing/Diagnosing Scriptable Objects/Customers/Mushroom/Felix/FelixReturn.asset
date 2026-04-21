@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
   - speakerName: Felix
-    text: its gettign worse please please please get me something!
+    text: It's getting worse please please please get me something!
     portrait: {fileID: 21300000, guid: d2c42faa0f97cef4796d4f971a54ddb4, type: 3}
   autoCloseOnLastLine: 1
   freezeOnLastLine: 1
