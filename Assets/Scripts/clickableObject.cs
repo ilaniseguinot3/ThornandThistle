@@ -31,7 +31,7 @@ public class clickableObject : MonoBehaviour
            tutorialNum = 0;
         }
         else
-           tutorialNum = 10;
+           tutorialNum = 4;
     }
     void Update()
     {
@@ -50,12 +50,20 @@ public class clickableObject : MonoBehaviour
                 {
                     if (hit.collider.gameObject.CompareTag("door"))
                     {
-                        print("clicked on door!");
                         playerMovementMouse.activeMouse = false;
-                        diagnosisCanvas.SetActive(true);
                         crosshairs.SetActive(false);
                         Cursor.lockState = CursorLockMode.None;
-                        DialogueManager.Instance.StartDialogue(dialogueToPlay);
+
+                        // if in tutorial, play tutorial dialogue
+                        if (tutorialNum < 4)
+                        {
+                            print("clicked on tutorial door!");
+                        }
+                        else
+                        {
+                            diagnosisCanvas.SetActive(true);
+                            DialogueManager.Instance.StartDialogue(dialogueToPlay);
+                        }
                     }
 
                     if (tutorialNum > 1)

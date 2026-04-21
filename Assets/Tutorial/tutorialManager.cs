@@ -66,5 +66,6 @@ public class tutorialManager : MonoBehaviour
     public void CompleteTutorial()
     {
         CompletedTutorial.SetActive(false);
+        clicker.tutorialNum = 4;
     }
 }
