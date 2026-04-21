@@ -11,8 +11,10 @@ public class clickableObject : MonoBehaviour
     public GameObject diagnosisCanvas;
     public DialogueData dialogueToPlay;
     public playerMovementScript playerMovementMouse;
+    public tutorialManager tutorial;
     public GameObject crosshairs;
     public GameObject fire;
+    bool playedTutorial;
 
     [Header("Ingredients")]
     public Ingredient MilkThistle;
@@ -30,9 +32,12 @@ public class clickableObject : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
            tutorialNum = 0;
+           playedTutorial = false;
         }
         else
-           tutorialNum = 4;
+        {
+            playedTutorial = true;
+        }
     }
 
     void Update()
@@ -57,14 +62,12 @@ public class clickableObject : MonoBehaviour
                         Cursor.lockState = CursorLockMode.None;
 
                         // if in tutorial, play tutorial dialogue
-                        if (tutorialNum < 4)
+                        
+                        if (tutorialNum == 1 && !playedTutorial)
                         {
-                            print("clicked on tutorial door!");
-                        }
-                        else
-                        {
-                            diagnosisCanvas.SetActive(true);
-                            DialogueManager.Instance.StartDialogue(dialogueToPlay);
+                            tutorial.firstPatientCanvas.SetActive(false);
+                            tutorial.bookTutorialCanvas.SetActive(true);
+                            playedTutorial = true;
                         }
                     }
 

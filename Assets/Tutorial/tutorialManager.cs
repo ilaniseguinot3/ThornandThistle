@@ -12,7 +12,6 @@ public class tutorialManager : MonoBehaviour
     // canvases
     public GameObject movementCanvas;
     public GameObject firstPatientCanvas;
-    public GameObject dialogueTutorialCanvas;
     public GameObject bookTutorialCanvas;
     public GameObject ingredientTutorialCanvas;
     public GameObject CauldronTutorial;
@@ -25,16 +24,6 @@ public class tutorialManager : MonoBehaviour
         movementCanvas.SetActive(false);
         firstPatientCanvas.SetActive(true);
         clicker.tutorialNum = 1;
-    }
-    public void showDialogueTutorial()
-    {
-        firstPatientCanvas.SetActive(false);
-        dialogueTutorialCanvas.SetActive(true);
-    }
-    public void showRecipeBookTutorial()
-    {
-        dialogueTutorialCanvas.SetActive(false);
-        bookTutorialCanvas.SetActive(true);
     }
     public void showingredientTutorialCanvas()
     {
