@@ -134,6 +134,7 @@ public class DoorInteraction : MonoBehaviour
     // need to also reset it back to play the same thing over and over again
     public void hideDiagnosis()
     {
+        //currentStage = Stage.WaitingForPotion;
         dialogueUI.Hide();
         playerMovementMouse.activeMouse = true;
         crosshairs.SetActive(true);
