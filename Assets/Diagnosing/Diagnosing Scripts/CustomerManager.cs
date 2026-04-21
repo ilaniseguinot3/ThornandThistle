@@ -115,6 +115,14 @@ public class CustomerManager : MonoBehaviour
         customerActive = false;
         waitingForPotion = false;
         GameState.Diagnosing = false;
+
+        if (remainingCustomers.Count == 0)
+        {
+            Debug.Log("🌙 All customers served — Day Over!");
+            GameOverManager.Instance.ShowDayOver();
+            return;
+        }
+
         StartCoroutine(QueueNextCustomerAfterDelay());
     }
 
