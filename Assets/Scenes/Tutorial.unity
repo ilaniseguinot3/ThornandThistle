@@ -10482,6 +10482,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 71341200}
   playerMovementMouse: {fileID: 2037357540}
   crosshairs: {fileID: 344872379}
+  tutorial: {fileID: 171630749}
 --- !u!82 &572841999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37542,9 +37543,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 466325023}
-        m_TargetAssemblyTypeName: tutorialMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 572841998}
+        m_TargetAssemblyTypeName: DoorInteraction, Assembly-CSharp
+        m_MethodName: hideDiagnosis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
