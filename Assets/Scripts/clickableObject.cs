@@ -14,7 +14,6 @@ public class clickableObject : MonoBehaviour
     public tutorialManager tutorial;
     public GameObject crosshairs;
     public GameObject fire;
-    bool playedTutorial;
 
     [Header("Ingredients")]
     public Ingredient MilkThistle;
@@ -32,11 +31,10 @@ public class clickableObject : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
            tutorialNum = 0;
-           playedTutorial = false;
         }
         else
         {
-            playedTutorial = true;
+           tutorialNum = 10;
         }
     }
 
@@ -57,17 +55,25 @@ public class clickableObject : MonoBehaviour
                 {
                     if (hit.collider.gameObject.CompareTag("door"))
                     {
-                        playerMovementMouse.activeMouse = false;
-                        crosshairs.SetActive(false);
-                        Cursor.lockState = CursorLockMode.None;
-
                         // if in tutorial, play tutorial dialogue
-                        
-                        if (tutorialNum == 1 && !playedTutorial)
+                        if (tutorialNum == 1 || tutorialNum == 5)
                         {
-                            tutorial.firstPatientCanvas.SetActive(false);
-                            tutorial.bookTutorialCanvas.SetActive(true);
-                            playedTutorial = true;
+                            // mouse stuff 
+                            playerMovementMouse.activeMouse = false;
+                            crosshairs.SetActive(false);
+                            Cursor.lockState = CursorLockMode.None;
+
+                            // tutorial stuff
+                            if (tutorialNum == 1)
+                            {
+                                tutorialNum = 2;
+                                tutorial.firstPatientCanvas.SetActive(false);
+                                tutorial.bookTutorialCanvas.SetActive(true);
+                            }
+                            else
+                            {   
+                                tutorial.remedyTutorial.SetActive(false);
+                            }
                         }
                     }
 

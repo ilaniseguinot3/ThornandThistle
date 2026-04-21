@@ -17,7 +17,7 @@ public class tutorialManager : MonoBehaviour
     public GameObject CauldronTutorial;
     public GameObject CauldronTutorial2;
     public GameObject remedyTutorial;
-    public GameObject CompletedTutorial;
+    public GameObject gameOverCanvas;
    
     public void showFirstPatientCanvas()
     {
@@ -29,13 +29,13 @@ public class tutorialManager : MonoBehaviour
     {
         bookTutorialCanvas.SetActive(false);
         ingredientTutorialCanvas.SetActive(true);
-        clicker.tutorialNum = 2;
+        clicker.tutorialNum = 3;
     }
     public void showCauldronTutorial()
     {
         ingredientTutorialCanvas.SetActive(false);
         CauldronTutorial.SetActive(true);
-        clicker.tutorialNum = 3;
+        clicker.tutorialNum = 4;
     }
     public void showCauldronTutorial2()
     {
@@ -46,15 +46,6 @@ public class tutorialManager : MonoBehaviour
     {
         CauldronTutorial.SetActive(false);
         remedyTutorial.SetActive(true);
-    }
-    public void showCompletedTutorial()
-    {
-        remedyTutorial.SetActive(false);
-        CompletedTutorial.SetActive(true);
-    }
-    public void CompleteTutorial()
-    {
-        CompletedTutorial.SetActive(false);
-        clicker.tutorialNum = 4;
+        clicker.tutorialNum = 5;
     }
 }

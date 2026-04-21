@@ -152,7 +152,7 @@ public class DialogueManager : MonoBehaviour
         ShowCurrentLine();
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         isPlaying = false;
         isTyping = false;
