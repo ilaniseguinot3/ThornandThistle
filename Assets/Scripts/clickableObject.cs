@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 public class clickableObject : MonoBehaviour
@@ -33,6 +34,7 @@ public class clickableObject : MonoBehaviour
         else
            tutorialNum = 4;
     }
+
     void Update()
     {
         if (Mouse.current == null) return;
@@ -113,17 +115,14 @@ public class clickableObject : MonoBehaviour
                             hit.collider.gameObject.SetActive(false);
                             InventoryManager.Instance.AddIngredient(Tincture, 1);
                         }
+
                         if (tutorialNum > 2)
                         {
                             if (hit.collider.gameObject.CompareTag("cauldron"))
                             {
-                                // Play the fire particle system
-                                fire.SetActive(true);
-                                ParticleSystem ps = fire.GetComponent<ParticleSystem>();
-                                if(ps != null)
-                                    ps.Play();
+                                StartCoroutine(PlayFire());
                                 CauldronManager.Instance.TryCombineIngredients();
-                                Debug.Log("Cauldron clicked — attempting brew!");
+                                Debug.Log("Cauldron clicked â€” attempting brew!");
                             }
                         }
                     }
@@ -131,5 +130,18 @@ public class clickableObject : MonoBehaviour
                 
             }
         }
+    }
+
+    IEnumerator PlayFire()
+    {
+        fire.SetActive(true);
+
+        ParticleSystem ps = fire.GetComponent<ParticleSystem>();
+        if (ps != null)
+            ps.Play();
+
+        yield return new WaitForSeconds(2f);
+
+        fire.SetActive(false);
     }
 }
