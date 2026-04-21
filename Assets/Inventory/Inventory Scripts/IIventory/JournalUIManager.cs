@@ -11,6 +11,8 @@ public class JournalUIManager : MonoBehaviour, PlayerControls.IUIActions
     public AudioClip openSound;
     public AudioClip closeSound;
 
+    public static bool IsOpen { get; private set; } // ← added
+
     private bool isOpen;
     private PlayerControls controls;
 
@@ -43,9 +45,9 @@ public class JournalUIManager : MonoBehaviour, PlayerControls.IUIActions
     private void ToggleJournal()
     {
         isOpen = !isOpen;
+        IsOpen = isOpen; // ← keep static in sync
         journalVisuals.SetActive(isOpen);
 
-        // Play open or close sound
         if (audioSource != null)
         {
             AudioClip clip = isOpen ? openSound : closeSound;
