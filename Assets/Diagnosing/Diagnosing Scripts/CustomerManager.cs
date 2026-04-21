@@ -11,8 +11,8 @@ public class CustomerManager : MonoBehaviour
     public List<Customer> customerPool = new();
 
     [Header("Money")]
-    public int correctPotionReward = 10;
-    public int wrongPotionPenalty = 5;
+    public int correctPotionReward = 0;
+    public int wrongPotionPenalty = 1;
 
     [Header("Next Customer Delay")]
     public float minDelay = 2f;
@@ -38,7 +38,7 @@ public class CustomerManager : MonoBehaviour
     {
         ShufflePool();
         if (exclamationObject != null)
-        exclamationObject.SetActive(true);
+            exclamationObject.SetActive(true);
 
         if (doorKnockSound != null)
             doorKnockSound.Play();
@@ -55,7 +55,6 @@ public class CustomerManager : MonoBehaviour
         Debug.Log("🔀 Customer pool shuffled");
     }
 
-    // Called on first door click
     public void StartNextCustomer()
     {
         if (remainingCustomers.Count == 0)
@@ -70,7 +69,6 @@ public class CustomerManager : MonoBehaviour
         Debug.Log($"👤 Customer arrived: {currentCustomer.customerName}");
     }
 
-    // Called on second door click
     public void EnterPotionSubmissionMode()
     {
         if (currentCustomer == null) return;
@@ -91,12 +89,9 @@ public class CustomerManager : MonoBehaviour
 
         if (correct)
         {
-            int reward = selectedPotion.sourceRecipe != null
-                ? selectedPotion.sourceRecipe.goldReward
-                : correctPotionReward; // fallback to flat value if no recipe linked
-
-            MoneyManager.Instance.Earn(reward);
-            Debug.Log($"✅ Correct! +{reward}g");
+            if (correctPotionReward > 0)
+                MoneyManager.Instance.Earn(correctPotionReward);
+            Debug.Log($"✅ Correct! +{correctPotionReward}g");
         }
         else
         {
@@ -113,13 +108,21 @@ public class CustomerManager : MonoBehaviour
         MoneyManager.Instance.TrySpend(wrongPotionPenalty);
         Debug.Log($"💸 Penalty: -{wrongPotionPenalty}g");
     }
-    // Called after response dialogue ends
+
     public void FinishCurrentCustomer()
     {
         currentCustomer = null;
         customerActive = false;
         waitingForPotion = false;
         GameState.Diagnosing = false;
+
+        if (remainingCustomers.Count == 0)
+        {
+            Debug.Log("🌙 All customers served — Day Over!");
+            GameOverManager.Instance.ShowDayOver();
+            return;
+        }
+
         StartCoroutine(QueueNextCustomerAfterDelay());
     }
 
@@ -132,12 +135,12 @@ public class CustomerManager : MonoBehaviour
         float delay = UnityEngine.Random.Range(minDelay, maxDelay);
         Debug.Log($"⏳ Next customer in {delay:F1} seconds...");
         yield return new WaitForSeconds(delay);
-        
+
         Debug.Log("🚪 A new customer is ready — click the door!");
-        
+
         if (exclamationObject != null)
             exclamationObject.SetActive(true);
-        
+
         if (doorKnockSound != null)
             doorKnockSound.Play();
     }

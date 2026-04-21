@@ -23,4 +23,4 @@ MonoBehaviour:
     requiredAmount: 1
   resultPotion: {fileID: 11400000, guid: 70442d28ebb53de4692fe7e193a58f42, type: 2}
   resultAmount: 1
-  goldReward: 15
+  goldReward: 1

@@ -20,6 +20,6 @@ public class MoneyUI : MonoBehaviour
     private void UpdateDisplay()
     {
         if (goldText != null)
-            goldText.text = $"💰 {MoneyManager.Instance.CurrentGold}g";
+            goldText.text = $"💰 {MoneyManager.Instance.CurrentGold}";
     }
 }

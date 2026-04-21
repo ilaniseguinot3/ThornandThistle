@@ -9,6 +9,9 @@ public class DoorInteraction : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (InventoryUIManager.IsOpen) return;
+        if (JournalUIManager.IsOpen) return;
+
         switch (currentStage)
         {
             case Stage.Idle:

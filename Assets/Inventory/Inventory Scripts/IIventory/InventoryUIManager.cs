@@ -57,16 +57,17 @@ public class InventoryUIManager : MonoBehaviour, PlayerControls.IUIActions
         }
     }
 
+    // InventoryUIManager.cs — add this static property
+    public static bool IsOpen { get; private set; }
+
     private void ToggleInventory()
     {
         isOpen = !isOpen;
+        IsOpen = isOpen; // ← keep static in sync
         inventoryVisuals.SetActive(isOpen);
         
-        // Refresh UI every time we open it
         if (isOpen)
-        {
             RefreshInventoryUI();
-        }
         
         Debug.Log($"🎒 Inventory toggled → {(isOpen ? "OPEN" : "CLOSED")}");
     }
