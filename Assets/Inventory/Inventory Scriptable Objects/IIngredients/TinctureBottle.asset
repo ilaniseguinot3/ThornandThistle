@@ -15,5 +15,5 @@ MonoBehaviour:
   ingredientName: Tincture Bottle
   icon: {fileID: 21300000, guid: 5789263caef06ab4b85940dbb52439f6, type: 3}
   category: 
-  quantity: 4
+  quantity: 0
   cost: 0

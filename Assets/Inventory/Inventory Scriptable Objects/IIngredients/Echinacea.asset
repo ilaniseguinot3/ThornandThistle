@@ -15,5 +15,5 @@ MonoBehaviour:
   ingredientName: Echinacea
   icon: {fileID: 21300000, guid: 02ca682531b0b0b46adec35a3c3d1d73, type: 3}
   category: 
-  quantity: 5
+  quantity: 0
   cost: 0

@@ -15,5 +15,5 @@ MonoBehaviour:
   ingredientName: Milk Thistle
   icon: {fileID: 21300000, guid: 577b468367ed7834989d72e670d58b7e, type: 3}
   category: 
-  quantity: 5
+  quantity: 0
   cost: 0
