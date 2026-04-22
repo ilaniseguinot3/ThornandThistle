@@ -1248,7 +1248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &71341195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7689,7 +7689,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_TargetDisplay: 0
 --- !u!224 &418079970
 RectTransform:
@@ -9593,7 +9593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &516347721
 Transform:
   m_ObjectHideFlags: 0
@@ -10483,6 +10483,7 @@ MonoBehaviour:
   playerMovementMouse: {fileID: 2037357540}
   crosshairs: {fileID: 344872379}
   tutorial: {fileID: 171630749}
+  gameOverCanvas: {fileID: 418079966}
 --- !u!82 &572841999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29528,7 +29529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1498294578
 Transform:
   m_ObjectHideFlags: 0
@@ -38812,7 +38813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &406499252440634289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39553,7 +39554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2290852202075899549
 Transform:
   m_ObjectHideFlags: 0
@@ -39663,7 +39664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2935647661365785428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42281,7 +42282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &8721433772835129724
 MeshFilter:
   m_ObjectHideFlags: 0

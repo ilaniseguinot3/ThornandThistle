@@ -13,15 +13,33 @@ public class DoorInteraction : MonoBehaviour
     public playerMovementScript playerMovementMouse;
     public GameObject crosshairs;
     public tutorialManager tutorial;
+    public GameObject gameOverCanvas;
 
     private void OnMouseDown()
     {
+        // if in tutorial, play tutorial dialogue
         // if it's the tutorial, only work when it has the correct timing
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
-            Debug.Log("StartReturnDialogue called in tutorial.");
             if (clicker.tutorialNum == 1 || clicker.tutorialNum == 5)
             {
+                // mouse stuff 
+                //playerMovementMouse.activeMouse = false;
+                //crosshairs.SetActive(false);
+                //Cursor.lockState = CursorLockMode.None;
+
+                // tutorial stuff
+                if (clicker.tutorialNum == 1)
+                {
+                    clicker.tutorialNum = 2;
+                    tutorial.firstPatientCanvas.SetActive(false);
+                    tutorial.bookTutorialCanvas.SetActive(true);
+                }
+                else
+                {   
+                    tutorial.remedyTutorial.SetActive(false);
+                }
+
                 switch (currentStage)
                 {
                     case Stage.Idle:
@@ -47,8 +65,13 @@ public class DoorInteraction : MonoBehaviour
         }
         else
         {
-            if (InventoryUIManager.IsOpen) return;
-            if (JournalUIManager.IsOpen) return;
+            //if (InventoryUIManager.IsOpen) return;
+            //if (JournalUIManager.IsOpen) return;
+            Debug.Log("unlocked!");
+            //playerMovementMouse.activeMouse = false;
+            //crosshairs.SetActive(false);
+            //Cursor.lockState = CursorLockMode.None;
+            //Cursor.visible = true;
 
             switch (currentStage)
             {
@@ -125,6 +148,13 @@ public class DoorInteraction : MonoBehaviour
                         currentStage = Stage.Idle;
                         Debug.Log("✅ Customer done — next customer incoming!");
                     });
+                    if (SceneManager.GetActiveScene().name == "Tutorial")
+                    {
+                        // show end screen for tutorial
+                        sorryButton.SetActive(false);
+                        gameOverCanvas.SetActive(true);
+                    }
+                    
                 };
                // show sorry button to close dialogue
                sorryButton.SetActive(true);
@@ -134,12 +164,17 @@ public class DoorInteraction : MonoBehaviour
     // need to also reset it back to play the same thing over and over again
     public void hideDiagnosis()
     {
-        //currentStage = Stage.WaitingForPotion;
-        dialogueUI.Hide();
+        currentStage = Stage.WaitingForPotion;
+        DialogueManager.Instance.EndDialogue();
+        Debug.Log("hid dialogue");
+        /*DialogueManager.Instance.CancelDialogue();
+        currentStage = Stage.WaitingForPotion;
         playerMovementMouse.activeMouse = true;
         crosshairs.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         sorryButton.SetActive(false);
-        Debug.Log("hid dialogue");
+        DiagnosisUIManager.Instance.HideIllness();
+        Debug.Log("hid dialogue and reset everything.");
+        */
     }
 }

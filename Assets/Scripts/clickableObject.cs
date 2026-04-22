@@ -56,24 +56,36 @@ public class clickableObject : MonoBehaviour
                     if (hit.collider.gameObject.CompareTag("door"))
                     {
                         // if in tutorial, play tutorial dialogue
-                        if (tutorialNum == 1 || tutorialNum == 5)
+                        if (SceneManager.GetActiveScene().name == "Tutorial")
                         {
-                            // mouse stuff 
+                            if (tutorialNum == 1 || tutorialNum == 5)
+                            {
+                                // mouse stuff 
+                                playerMovementMouse.activeMouse = false;
+                                crosshairs.SetActive(false);
+                                Cursor.lockState = CursorLockMode.None;
+
+                                // tutorial stuff
+                                if (tutorialNum == 1)
+                                {
+                                    tutorialNum = 2;
+                                    tutorial.firstPatientCanvas.SetActive(false);
+                                    tutorial.bookTutorialCanvas.SetActive(true);
+                                }
+                                else
+                                {   
+                                    tutorial.remedyTutorial.SetActive(false);
+                                }
+                            }
+                        }
+                        else
+                        // sometimes dialgue from door starts before this is registered so this doesnt happen
+                        {
+                            Debug.Log("unlocked!");
                             playerMovementMouse.activeMouse = false;
                             crosshairs.SetActive(false);
                             Cursor.lockState = CursorLockMode.None;
-
-                            // tutorial stuff
-                            if (tutorialNum == 1)
-                            {
-                                tutorialNum = 2;
-                                tutorial.firstPatientCanvas.SetActive(false);
-                                tutorial.bookTutorialCanvas.SetActive(true);
-                            }
-                            else
-                            {   
-                                tutorial.remedyTutorial.SetActive(false);
-                            }
+                            Cursor.visible = true;
                         }
                     }
 
