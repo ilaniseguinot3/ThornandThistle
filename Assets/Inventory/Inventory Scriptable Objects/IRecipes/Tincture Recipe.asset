@@ -20,3 +20,4 @@ MonoBehaviour:
   resultPotion: {fileID: 11400000, guid: a012fe30236decc49864cf42a85b30d9, type: 2}
   resultAmount: 1
   goldReward: 1
+  recipeImage: {fileID: 21300000, guid: 11a67190d07871349bbf509fb3c6ba1d, type: 3}

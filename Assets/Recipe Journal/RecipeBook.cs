@@ -5,30 +5,15 @@ using TMPro;
 
 public class RecipeBook : MonoBehaviour
 {
-    [System.Serializable]
-    public class IngredientEntry
-    {
-        public string ingredientName;
-        public Sprite ingredientSprite;
-    }
-
-    [System.Serializable]
-    public class Recipe
-    {
-        public string recipeName;
-        [TextArea(2, 5)]
-        public string description;
-        public List<IngredientEntry> ingredients = new List<IngredientEntry>();
-    }
-
     [Header("Recipes")]
+    // Reference your ScriptableObject assets here!
     public List<Recipe> recipes = new List<Recipe>();
 
     [Header("UI References")]
+    public Image recipeImageDisplay;
     public TextMeshProUGUI recipeTitleText;
     public TextMeshProUGUI descriptionText;
-    public List<Image> ingredientImages = new List<Image>();
-    public List<TextMeshProUGUI> ingredientLabels = new List<TextMeshProUGUI>();
+    // (ingredientImages/labels can be removed if not used)
 
     [Header("Navigation")]
     public Button nextButton;
@@ -71,23 +56,10 @@ public class RecipeBook : MonoBehaviour
     {
         Recipe r = recipes[index];
 
-        if (recipeTitleText) recipeTitleText.text = r.recipeName;
-        if (descriptionText)  descriptionText.text  = r.description;
-
-        for (int i = 0; i < ingredientImages.Count; i++)
+        if (recipeImageDisplay != null)
         {
-            bool hasIngredient = i < r.ingredients.Count;
-
-            if (ingredientImages[i])
-            {
-                ingredientImages[i].sprite  = hasIngredient ? r.ingredients[i].ingredientSprite : null;
-                ingredientImages[i].enabled = hasIngredient;
-            }
-
-            if (i < ingredientLabels.Count && ingredientLabels[i])
-            {
-                ingredientLabels[i].text = hasIngredient ? r.ingredients[i].ingredientName : "";
-            }
+            recipeImageDisplay.sprite = r.recipeImage;
+            recipeImageDisplay.enabled = r.recipeImage != null;
         }
     }
 }
