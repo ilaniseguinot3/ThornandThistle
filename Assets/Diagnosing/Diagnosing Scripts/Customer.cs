@@ -4,7 +4,14 @@ using UnityEngine;
 public class Customer : ScriptableObject
 {
     public string customerName;
-    public Sprite portrait;
+    //public Sprite portrait;
+    public Sprite skin;
+    public Sprite shirt;
+    public Sprite eyes;
+   // public Sprite nose;
+    //public Sprite mouth;
+    public Sprite hair;
+    public Sprite accessory;
     public Illness illness;
 
     [Header("Dialogues")]

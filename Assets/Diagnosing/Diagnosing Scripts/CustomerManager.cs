@@ -55,13 +55,88 @@ public class CustomerManager : MonoBehaviour
         Debug.Log("🔀 Customer pool shuffled");
     }
 
+    // sprite randomizers:
+    public string[] customerNames;
+    public Sprite[] skinSprites;
+    public Sprite[] shirtSprites;
+    public Sprite[] eyeSprites;
+    public Sprite[] noseSprites;
+    public Sprite[] mouthSprites;
+    public Sprite[] hairSprites;
+    public Sprite[] accessorySprites;
+
+    public string GetRandomCustomerName()
+    {
+        int index = UnityEngine.Random.Range(0, customerNames.Length);
+        return customerNames[index];
+    }
+
+    public Sprite GetRandomSkinSprite()
+    {
+        int index = UnityEngine.Random.Range(0, skinSprites.Length);
+        return skinSprites[index];
+    }
+
+    public Sprite GetRandomShirtSprite()
+    {
+        int index = UnityEngine.Random.Range(0, shirtSprites.Length);
+        return shirtSprites[index];
+    }
+
+    public Sprite GetRandomEyesSprite()
+    {
+        int index = UnityEngine.Random.Range(0, eyeSprites.Length);
+        return eyeSprites[index];
+    }
+
+    public Sprite GetRandomNoseSprite()
+    {
+        int index = UnityEngine.Random.Range(0, noseSprites.Length);
+        return noseSprites[index];
+    }
+
+    public Sprite GetRandomMouthSprite()
+    {
+        int index = UnityEngine.Random.Range(0, mouthSprites.Length);
+        return mouthSprites[index];
+    }
+
+    public Sprite GetRandomHairSprite()
+    {
+        int index = UnityEngine.Random.Range(0, hairSprites.Length);
+        return hairSprites[index];
+    }
+
+    public Sprite GetRandomAccessorySprite()
+    {
+        int index = UnityEngine.Random.Range(0, accessorySprites.Length);
+        return accessorySprites[index];
+    }
+
+    // blank customer template for randomization:
+    public Customer customerTemplate;
+
     public void StartNextCustomer()
     {
         if (remainingCustomers.Count == 0)
             ShufflePool();
-
+        /*
         currentCustomer = remainingCustomers[0];
         remainingCustomers.RemoveAt(0);
+        */
+        // make new customer based on template and randomization
+        currentCustomer = ScriptableObject.CreateInstance<Customer>();
+        // randomize parts
+        currentCustomer.customerName = GetRandomCustomerName();
+        currentCustomer.skin = GetRandomSkinSprite();
+        currentCustomer.shirt = GetRandomShirtSprite();
+        currentCustomer.eyes = GetRandomEyesSprite();
+        //currentCustomer.nose = GetRandomNoseSprite();
+        //currentCustomer.mouth = GetRandomMouthSprite();
+        currentCustomer.hair = GetRandomHairSprite();
+        currentCustomer.accessory = GetRandomAccessorySprite();
+        // idea ^ have blank sprites for no accessory
+
         waitingForPotion = false;
         customerActive = true;
         GameState.Diagnosing = false;
