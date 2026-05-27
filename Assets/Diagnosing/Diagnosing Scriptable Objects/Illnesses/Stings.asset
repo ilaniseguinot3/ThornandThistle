@@ -16,3 +16,8 @@ MonoBehaviour:
   description: Sharp pain
   illnessSprite: {fileID: 21300000, guid: 88509cbb0a504a04b92268d74e9c107c, type: 3}
   cure: {fileID: 11400000, guid: 70442d28ebb53de4692fe7e193a58f42, type: 2}
+  dialogueSets:
+  - arrivalDialogue: {fileID: 11400000, guid: 39c36329e16217342b34843d0eaf64e6, type: 2}
+    returnDialogue: {fileID: 11400000, guid: 123e96265df1cb648807dd3bea94c701, type: 2}
+    correctPotionDialogue: {fileID: 11400000, guid: 7147f0b1993343d4f8c13f9d599f5315, type: 2}
+    wrongPotionDialogue: {fileID: 11400000, guid: 7e0e7f8683f20434199b5abd218c0997, type: 2}

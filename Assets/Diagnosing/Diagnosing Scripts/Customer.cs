@@ -3,15 +3,20 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Customer", menuName = "Diagnosis/Customer")]
 public class Customer : ScriptableObject
 {
-    public string customerName;
+    //old 
     //public Sprite portrait;
+
+    //randomize:
+    public string customerName;
     public Sprite skin;
     public Sprite shirt;
     public Sprite eyes;
-   // public Sprite nose;
-    //public Sprite mouth;
+    public Sprite nose;
+    public Sprite mouth;
     public Sprite hair;
     public Sprite accessory;
+    
+    // must attach dialogues to illness
     public Illness illness;
 
     [Header("Dialogues")]

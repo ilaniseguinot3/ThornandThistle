@@ -55,7 +55,7 @@ public class CustomerManager : MonoBehaviour
         Debug.Log("🔀 Customer pool shuffled");
     }
 
-    // sprite randomizers:
+    // customer randomizers:
     public string[] customerNames;
     public Sprite[] skinSprites;
     public Sprite[] shirtSprites;
@@ -64,6 +64,21 @@ public class CustomerManager : MonoBehaviour
     public Sprite[] mouthSprites;
     public Sprite[] hairSprites;
     public Sprite[] accessorySprites;
+    public Illness[] illnesses;
+
+    public Illness GetRandomIllness()
+    {
+        int index = UnityEngine.Random.Range(0, illnesses.Length);
+        return illnesses[index];
+    }
+
+    /*
+    public var GetRandomDialogue()
+    {
+        int dialogueIndex = UnityEngine.Random.Range(0, currentCustomer.illness.dialogueSets.Count);
+        return currentCustomer.illness.dialogueSets[dialogueIndex];
+    }
+    */
 
     public string GetRandomCustomerName()
     {
@@ -118,6 +133,7 @@ public class CustomerManager : MonoBehaviour
 
     public void StartNextCustomer()
     {
+        // NOTE need to add variable for total number of customers i think!
         if (remainingCustomers.Count == 0)
             ShufflePool();
         /*
@@ -131,11 +147,22 @@ public class CustomerManager : MonoBehaviour
         currentCustomer.skin = GetRandomSkinSprite();
         currentCustomer.shirt = GetRandomShirtSprite();
         currentCustomer.eyes = GetRandomEyesSprite();
-        //currentCustomer.nose = GetRandomNoseSprite();
-        //currentCustomer.mouth = GetRandomMouthSprite();
+        currentCustomer.nose = GetRandomNoseSprite();
+        currentCustomer.mouth = GetRandomMouthSprite();
         currentCustomer.hair = GetRandomHairSprite();
         currentCustomer.accessory = GetRandomAccessorySprite();
-        // idea ^ have blank sprites for no accessory
+        currentCustomer.illness = GetRandomIllness();
+
+        // set random dialogue
+        
+        //var chosenSet = GetRandomDialogue();
+        int dialogueIndex = UnityEngine.Random.Range(0, currentCustomer.illness.dialogueSets.Count);
+        var chosenSet = currentCustomer.illness.dialogueSets[dialogueIndex];
+        currentCustomer.arrivalDialogue = chosenSet.arrivalDialogue;
+        currentCustomer.returnDialogue = chosenSet.returnDialogue;
+        currentCustomer.correctPotionDialogue = chosenSet.correctPotionDialogue;
+        currentCustomer.wrongPotionDialogue = chosenSet.wrongPotionDialogue;
+        
 
         waitingForPotion = false;
         customerActive = true;

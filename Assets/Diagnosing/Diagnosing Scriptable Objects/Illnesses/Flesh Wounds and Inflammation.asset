@@ -16,3 +16,16 @@ MonoBehaviour:
   description: Feels like fire across the skin.
   illnessSprite: {fileID: 21300000, guid: 90edbb5243fa8384eb14a18c4b251582, type: 3}
   cure: {fileID: 11400000, guid: 584f24e153807f041ac4dfb92fcc8e55, type: 2}
+  dialogueSets:
+  - arrivalDialogue: {fileID: 11400000, guid: 52a37d04487fa0f41bdaafdd11935886, type: 2}
+    returnDialogue: {fileID: 11400000, guid: ad806059f0b7dc14aaa52b50a2a8ab9e, type: 2}
+    correctPotionDialogue: {fileID: 11400000, guid: 01368fc6dea7d644f813d2cafdc59fe7, type: 2}
+    wrongPotionDialogue: {fileID: 11400000, guid: c23dce77ef18f414294721d8aa849fbd, type: 2}
+  - arrivalDialogue: {fileID: 11400000, guid: 5e34e6f2881442449b3beb02f403a93d, type: 2}
+    returnDialogue: {fileID: 11400000, guid: 35bd3407220c44a40a6dad6e12d914c4, type: 2}
+    correctPotionDialogue: {fileID: 11400000, guid: 58e524ae089b64943ba26abed6c506b7, type: 2}
+    wrongPotionDialogue: {fileID: 11400000, guid: d9f6dd02c26cbae499afdc04828f4f04, type: 2}
+  - arrivalDialogue: {fileID: 11400000, guid: 8199baf7b18846849bb7feea052b8cf8, type: 2}
+    returnDialogue: {fileID: 11400000, guid: 56cfdef9a50b2f841bee4b8c5d44cb14, type: 2}
+    correctPotionDialogue: {fileID: 11400000, guid: fe04cae9ff727e345af5592c0dc12bee, type: 2}
+    wrongPotionDialogue: {fileID: 11400000, guid: 6f14d1edc6096694d82b5bdb2d707389, type: 2}

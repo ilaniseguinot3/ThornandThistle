@@ -1441,6 +1441,8 @@ MonoBehaviour:
   skinImage: {fileID: 0}
   shirtImage: {fileID: 0}
   eyesImage: {fileID: 0}
+  noseImage: {fileID: 0}
+  mouthImage: {fileID: 0}
   hairImage: {fileID: 0}
   accessoryImage: {fileID: 0}
   illnessImage: {fileID: 13732459}
@@ -9573,17 +9575,29 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b92fc14f5d7e524429c33ca2225f2757, type: 3}
   - {fileID: 21300000, guid: b808e2a6df63617419dd4e934fe60e11, type: 3}
   - {fileID: 21300000, guid: 7b094ed71b9cacf4499cbf7ca1d59540, type: 3}
-  noseSprites: []
-  mouthSprites: []
+  noseSprites:
+  - {fileID: 21300000, guid: 8b1d83ed91642b048ba6ae6a476fbcf9, type: 3}
+  - {fileID: 21300000, guid: 63c7f7bf25377e94a906b4a8ee9786d0, type: 3}
+  - {fileID: 21300000, guid: 631c2e6f878a9cb4aabc15ea483acb30, type: 3}
+  mouthSprites:
+  - {fileID: 21300000, guid: 2e9eff5181050454b8c6b1f64c587541, type: 3}
+  - {fileID: 21300000, guid: 984e866496fc19e4c9b90687a7b0a98c, type: 3}
+  - {fileID: 21300000, guid: 21c5017453fd8814ab90c8630536b454, type: 3}
   hairSprites:
   - {fileID: 21300000, guid: f4b829a644ea62843845914584ecc00c, type: 3}
   - {fileID: 21300000, guid: afd7f5217f267364099b512e5203d7ae, type: 3}
   - {fileID: 21300000, guid: 3032bbae6c5dac34a9097fb8ef95e049, type: 3}
+  - {fileID: 21300000, guid: d085ac851e3e72c47a886e51c78d9438, type: 3}
   accessorySprites:
   - {fileID: 21300000, guid: 9aaeaa77cd29c624d9e6b8fff7a39450, type: 3}
   - {fileID: 21300000, guid: 934055140f054a540954fdac2ebdf1ca, type: 3}
   - {fileID: 21300000, guid: 670afe7b3c203c54482ebb225a0aea41, type: 3}
   - {fileID: 21300000, guid: 2fde9ce317cacab47a0364bb59c35937, type: 3}
+  - {fileID: 21300000, guid: d085ac851e3e72c47a886e51c78d9438, type: 3}
+  illnesses:
+  - {fileID: 11400000, guid: ff0bf125113b3b04d957dca25b9d65f5, type: 2}
+  - {fileID: 11400000, guid: 46ae3c6d9d02e0d4abae87d8c9f2f201, type: 2}
+  - {fileID: 11400000, guid: 23abb884b44503749832dba3ef502668, type: 2}
   customerTemplate: {fileID: 0}
   exclamationObject: {fileID: 899819280}
   doorKnockSound: {fileID: 572841999}

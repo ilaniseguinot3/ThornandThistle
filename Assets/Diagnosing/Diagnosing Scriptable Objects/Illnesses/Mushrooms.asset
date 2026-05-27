@@ -16,3 +16,16 @@ MonoBehaviour:
   description: Poisoning of the gut.
   illnessSprite: {fileID: 21300000, guid: 41de39e2896f8424684055b4961d10b3, type: 3}
   cure: {fileID: 11400000, guid: a012fe30236decc49864cf42a85b30d9, type: 2}
+  dialogueSets:
+  - arrivalDialogue: {fileID: 11400000, guid: 0d7b2a1952d2e5340961dfb918e188df, type: 2}
+    returnDialogue: {fileID: 11400000, guid: d0ce3d1d29609364f9541a65ad29e221, type: 2}
+    correctPotionDialogue: {fileID: 11400000, guid: cbb5a8dd2cca219449803243883a9a21, type: 2}
+    wrongPotionDialogue: {fileID: 11400000, guid: 3e3279ba602125f459f6dc955c36a81b, type: 2}
+  - arrivalDialogue: {fileID: 11400000, guid: 13f901fce4be2d6478df10c6589c621a, type: 2}
+    returnDialogue: {fileID: 11400000, guid: 8449252652dc5514eb27791430b0e235, type: 2}
+    correctPotionDialogue: {fileID: 11400000, guid: ef6926032ca2c5448b9413a7e817c1f2, type: 2}
+    wrongPotionDialogue: {fileID: 11400000, guid: e7b762e24a1453244bf65bc1d91ef001, type: 2}
+  - arrivalDialogue: {fileID: 11400000, guid: 00bb9c1eb67788a449696f2d853608d9, type: 2}
+    returnDialogue: {fileID: 11400000, guid: 07e557825c2db13458c1188712854611, type: 2}
+    correctPotionDialogue: {fileID: 11400000, guid: cc98ca7a3063b204c98fb92641135c6e, type: 2}
+    wrongPotionDialogue: {fileID: 11400000, guid: d75e567e2792d614cad98ac6d05c361c, type: 2}
